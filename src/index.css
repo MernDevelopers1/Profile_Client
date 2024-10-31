@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Rowdies:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #343330;
+  @apply font-rowdies;
+}
+.container{
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+.gradient-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 4px;
+  background: linear-gradient(to right, #ddd, #9333ea);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.gradient-border:hover::after {
+  transform: scaleX(1);
+}
+
+.placeholder {
+  color: white; /* Replace #yourColor with the desired hex color */
+  opacity: 1; /* Override default opacity */
+}
