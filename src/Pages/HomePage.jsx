@@ -25,7 +25,7 @@ const HomePage = () => {
                 <Services />
             </div>
             {/* <Services /> */}
-            <MyWork />
+            <MyWork showAll={false} />
             <Contact/>
             <Footer/>
         </>

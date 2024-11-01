@@ -36,6 +36,16 @@ const mywork_data = [
         w_name:"Web design",
         w_img:project6_img
     },
+    {
+        w_no:7,
+        w_name:"Web designeee",
+        w_img:project6_img
+    },
+    {
+        w_no:8,
+        w_name:"Web designeee",
+        w_img:project6_img
+    },
 ]
  
 export default mywork_data;

@@ -1,8 +1,35 @@
 // import React from 'react';
+import { useState } from "react";
 import theme_pattern from "../../assets/theme_pattern.svg";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = () => {
+
+    const [result, setResult] = useState("");
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "57b52d6f-ce9f-4d3c-aaa8-ab8b4847716c");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Form Submitted Successfully");
+            alert("Form Submitted Successfully")
+            event.target.reset();
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
+
     const personalInfo = [
         {
             icon: <FaEnvelope className="mr-2 text-white" />,
@@ -46,7 +73,7 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className="w-full lg:w-2/3"> {/* Changed width to w-full for smaller devices */}
-                                <form className="bg-gray-600 bg-opacity-35 p-6 rounded-xl shadow-md mt-10 lg:mt-0">
+                                <form onSubmit={onSubmit} className="bg-gray-600 bg-opacity-35 p-6 rounded-xl shadow-md mt-10 lg:mt-0">
                                     <div className="mb-4">
                                         <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
                                         <input

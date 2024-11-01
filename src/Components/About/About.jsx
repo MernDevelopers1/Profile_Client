@@ -20,11 +20,11 @@ const About = () => {
                     {/* Title Section */}
                     <div className="flex justify-center relative mb-20">
                         <h1 className="text-6xl text-white">About Us</h1>
-                        <img className="absolute z-[-1] left-1/2" src={theme_pattern} alt="" />
+                        <img className=" hidden md:block absolute z-[-1] left-1/2" src={theme_pattern} alt="" />
                     </div>
 
                     {/* Content Section */}
-                    <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 bg-gray-600 p-0 md:p-10 rounded-2xl bg-opacity-25">
+                    <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 bg-gray-600 p-5 md:p-10 rounded-2xl bg-opacity-25">
                         {/* Left Image (30% Width) */}
                         <div className="w-full lg:w-1/4 flex items-center">
                             <img

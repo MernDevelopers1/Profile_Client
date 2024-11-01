@@ -13,6 +13,7 @@
 body {
   background-color: #343330;
   @apply font-rowdies;
+  overflow-x: hidden;
 }
 .container{
   max-width: 1310px;

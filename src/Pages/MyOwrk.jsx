@@ -6,10 +6,10 @@ import Navbar from "../Components/Navbar/Navbar"
 const MyOwrk = () => {
     return (
         <>
-            <div className="relative min-h-screen py-[20px]">
+            <div className="relative min-h-screen py-[20px] pt-20">
                 <CanvasBackground />
                 <Navbar/>
-                <MyWork/>
+                <MyWork showAll={true}/>
             </div>
         </>
 
