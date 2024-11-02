@@ -8,7 +8,7 @@ const ServicesPage = () => {
             <div className="relative min-h-screen py-[20px] pt-20">
                 <CanvasBackground />
                 <Navbar/>
-                <Services/>
+                <Services showAll={true}/>
             </div>
         </>
 

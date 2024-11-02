@@ -33,15 +33,15 @@ const Contact = () => {
     const personalInfo = [
         {
             icon: <FaEnvelope className="mr-2 text-white" />,
-            label: 'example@mail.com'
+            label: 'usamadeveloper14@gmail.com'
         },
         {
             icon: <FaPhone className="mr-2 text-white" />,
-            label: '+1234567890'
+            label: '+92 333 1411367'
         },
         {
             icon: <FaMapMarkerAlt className="mr-2 text-white" />,
-            label: '123 Main St, City, Country'
+            label: 'Lahore, PAK'
         },
     ];
 
@@ -73,46 +73,46 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className="w-full lg:w-2/3"> {/* Changed width to w-full for smaller devices */}
-                                <form onSubmit={onSubmit} className="bg-gray-600 bg-opacity-35 p-6 rounded-xl shadow-md mt-10 lg:mt-0">
-                                    <div className="mb-4">
-                                        <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
+                                <form onSubmit={onSubmit} className="bg-[#1d2b3a] p-10 rounded-xl shadow-md mt-10 lg:mt-0">
+                                    <div className="inputbox mb-8 relative">
+                                        {/* <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label> */}
                                         <input
                                             type="text"
                                             name="name"
                                             id="name"
-                                            placeholder="Enter Your Name"
-                                            className="w-full p-3 bg-black bg-opacity-20 border border-gray-300 rounded-md"
-                                            required
+                                            // placeholder="Enter Your Name"
+                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg h-16 duration-500"
+                                            required="required"
                                         />
+                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Name</span>
                                     </div>
-                                    <div className="mb-4">
-                                        <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
+                                    <div className="inputbox mb-8 relative">
+                                        {/* <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label> */}
                                         <input
                                             type="email"
                                             name="email"
                                             id="email"
-                                            placeholder="Enter Your Email"
-                                            className="w-full p-3 bg-black bg-opacity-20 border border-gray-300 rounded-md"
-                                            required
+                                            // placeholder="Enter Your Email"
+                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg h-16 duration-500"
+                                            required="required"
                                         />
+                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Email ID</span>
                                     </div>
-                                    <div className="mb-4">
-                                        <label htmlFor="msg" className="block text-gray-700 font-semibold mb-2">Your Message Here</label>
+                                    <div className="inputbox mb-8 relative">
+                                        {/* <label htmlFor="msg" className="block text-gray-700 font-semibold mb-2">Your Message Here</label> */}
                                         <textarea
                                             name="msg"
                                             id="msg"
                                             rows="5"
-                                            placeholder="Write your message..."
-                                            className="w-full p-3 bg-black bg-opacity-20 border border-gray-300 rounded-md"
-                                            required
+                                            // placeholder="Write your message..."
+                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg duration-500"
+                                            required="required"
                                         ></textarea>
+                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Message</span>
                                     </div>
-                                    <button
-                                        type="submit"
-                                        className="w-full bg-gradient-to-r from-blue-600 to-red-950 text-white font-semibold p-3 rounded-md hover:from-red-950 hover:to-blue-600 transition duration-300"
-                                    >
-                                        Submit
-                                    </button>
+                                    <a type="submit" className="cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
+                                        <span>Subscribe<i className="bg-transparent!"></i></span>
+                                    </a>
                                 </form>
                             </div>
                         </div>

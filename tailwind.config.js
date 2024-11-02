@@ -13,6 +13,7 @@ export default {
       },
       colors: {
         buttonbg: '#45462A',
+        servicebg: '#343330'
       },
       fontFamily: {
         rowdies: ['Rowdies', 'cursive'],

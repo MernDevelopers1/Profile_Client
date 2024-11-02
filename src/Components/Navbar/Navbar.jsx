@@ -73,9 +73,9 @@ const Navbar = () => {
           </ul>
         </div>
         
-        <a className="hidden lg:block items-center cursor-pointer text-white px-3 md:px-6 py-3 font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-lg md:text-lg rounded-full transition-transform transform duration-300 ease-in-out hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:scale-105">
-          Connect with me
-        </a>
+        <Link to="/contact" className="hidden lg:block cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
+          <span>Connect with me<i></i></span>
+        </Link>
       </div>
     </nav>
   );

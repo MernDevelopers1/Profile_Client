@@ -24,9 +24,11 @@ const MyWork = ({ showAll }) => {
                 {/* Show More button only when not showing all items */}
                 {!showAll && (
                     <div className="flex justify-center mt-10">
-                        <button className="text-white text-2xl mt-10 rounded-full border-b border-white px-12 py-4 transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:scale-105">
-                            Show More
+                        <button
+                            className="workbutton relative bg-white tracking-widest text-white text-2xl mt-10 px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
+                            <span>Show More<i></i></span>
                         </button>
+
                     </div>
                 )}
             </div>

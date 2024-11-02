@@ -17,8 +17,26 @@ const CanvasBackground = () => {
 
     const mouse = { x: undefined, y: undefined };
     const maxRadius = 30;
-    const minRadius = 2 ;
-    const colors = ['#BF0426', '#730220', '#014040', '#05A6A6', '#027368'];
+    const minRadius = 2;
+    const colors = [
+      '#A8D5BA', // Soft Mint Green
+      '#FFD3B4', // Warm Peach
+      '#FFAAA7', // Pastel Coral
+      '#F5E1A4', // Light Cream Yellow
+      '#A3C4BC', // Muted Aqua Green
+      '#E3C6A9', // Soft Tan
+      '#B6C2D9', // Light Periwinkle Blue
+      '#C3A29E', // Soft Clay Pink
+      '#D4A5A5', // Muted Dusty Rose
+      '#FFD6E0', // Soft Pastel Pink
+      '#FBE7C6', // Light Pastel Yellow
+      '#B5EAD7', // Pale Mint
+      '#FFDAC1', // Light Apricot
+      '#FFB7B2', // Soft Pink Coral
+      '#C7CEEA'  // Soft Lavender
+    ];
+
+
 
     function Circle(x, y, dx, dy, radius) {
       this.x = x;

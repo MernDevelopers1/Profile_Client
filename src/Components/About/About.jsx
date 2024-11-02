@@ -3,13 +3,16 @@ import theme_pattern from "../../assets/theme_pattern.svg";
 import skillsimage from "../../assets/skills.jpg";
 
 const skills = [
-    { name: "HTML", progress: 90 },
-    { name: "CSS", progress: 85 },
+    { name: "HTML", progress: 70 },
+    { name: "CSS", progress: 75 },
     { name: "Bootstrap", progress: 80 },
-    { name: "JS", progress: 60 },
-    { name: "Tailwind", progress: 75 },
-    { name: "React.js", progress: 70 },
-    { name: "Vue.js", progress: 65 }
+    { name: "JS", progress: 50 },
+    { name: "Tailwind", progress: 80 },
+    { name: "React.js", progress: 60 },
+    { name: "Next JS", progress: 50 },
+    { name: "Vue.js", progress: 60 },
+    { name: "Flutter", progress: 60 },
+    { name: "Fire-Base", progress: 50 }
 ];
 
 const About = () => {

@@ -22,7 +22,7 @@ const HomePage = () => {
             <About />
             <div className="relative min-h-screen py-[20px]">
                 <CanvasForServices/>
-                <Services />
+                <Services showAll={false} />
             </div>
             {/* <Services /> */}
             <MyWork showAll={false} />
