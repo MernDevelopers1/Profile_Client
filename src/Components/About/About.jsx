@@ -21,7 +21,7 @@ const About = () => {
             <div className="container">
                 <div className="my-10 md:my-20">
                     {/* Title Section */}
-                    <div className="flex justify-center relative mb-20">
+                    <div className="flex justify-center relative mb-10">
                         <h1 className="text-6xl text-white">About Us</h1>
                         <img className=" hidden md:block absolute z-[-1] left-1/2" src={theme_pattern} alt="" />
                     </div>

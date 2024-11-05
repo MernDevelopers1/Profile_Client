@@ -2,7 +2,7 @@
 // import React from 'react';
 import About from "../Components/About/About";
 import CanvasBackground from "../Components/CanvasBackground";
-import CanvasForServices from "../Components/CanvasForServices"
+// import CanvasForServices from "../Components/CanvasForServices"
 import Contact from "../Components/Contact/Contact";
 import Footer from "../Components/Footer/Footer";
 import HeroSection from "../Components/HeroSection/HeroSection";
@@ -20,8 +20,7 @@ const HomePage = () => {
                 <HeroSection />
             </div>
             <About />
-            <div className="relative min-h-screen py-[20px]">
-                <CanvasForServices/>
+            <div className="py-[20px] bg-gray-600">
                 <Services showAll={false} />
             </div>
             {/* <Services /> */}

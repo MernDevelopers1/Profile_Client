@@ -6,6 +6,8 @@ import AboutPage from './Pages/AboutPage';
 import ServicesPage from './Pages/ServicesPage';
 import MyOwrk from './Pages/MyOwrk';
 import ContactPage from './Pages/ContactPage';
+import CodePage from './Pages/CodePage';
+import ImagePage from './Pages/ImagePage';
 // import AnotherPage from './Pages/AnotherPage'; // Example of another page
 
 const App = () => {
@@ -18,6 +20,8 @@ const App = () => {
           <Route exact path="/services" element={<ServicesPage/>} />
           <Route exact path="/work" element={<MyOwrk/>} />
           <Route exact path="/contact" element={<ContactPage/>} />
+          <Route exact path="/code/:id" element={<CodePage/>} />
+          <Route exact path="/preview/:id" element={<ImagePage/>} />
         </Routes>
       </div>
     </Router>
