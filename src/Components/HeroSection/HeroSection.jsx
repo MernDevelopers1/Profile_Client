@@ -35,7 +35,7 @@ const HeroSection = () => {
                     <button className='herobutton relative inline-block text-[#03e9f4] cursor-pointer py-[25px] px-4 md:px-[30px] uppercase tracking-[4px] text-lg font-semibold transition duration-500 overflow-hidden'><span></span>
                         <span></span>
                         <span></span>
-                        <span></span>HIRE ME</button>
+                        <span></span>HIRE MEE</button>
                 </div>
 
                 <h1 className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent text-3xl lg:text-6xl
