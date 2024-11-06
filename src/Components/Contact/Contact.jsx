@@ -41,7 +41,7 @@ const Contact = () => {
         },
         {
             icon: <FaMapMarkerAlt className="mr-2 text-white" />,
-            label: 'Lahore, PAK'
+            label: 'Lahore, Pakistan'
         },
     ];
 
@@ -110,9 +110,9 @@ const Contact = () => {
                                         ></textarea>
                                         <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Message</span>
                                     </div>
-                                    <a type="submit" className="cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
-                                        <span>Subscribe<i className="bg-transparent!"></i></span>
-                                    </a>
+                                    <button type="submit" className="cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
+                                        <span>Submit<i className=""></i></span>
+                                    </button>
                                 </form>
                             </div>
                         </div>

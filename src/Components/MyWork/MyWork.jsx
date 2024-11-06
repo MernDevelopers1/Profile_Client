@@ -21,6 +21,11 @@ const MyWork = ({ showAll }) => {
                                 alt=""
                             />
 
+                            {/* Badge */}
+                            <div className="absolute top-0 left-0 bg-red-500 text-white text-base px-2 py-1 rounded-br-lg">
+                                ESP Work
+                            </div>
+
                             {/* Overlay with buttons */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
                                 <Link to={`/preview/${work.w_no}`}>
@@ -38,6 +43,7 @@ const MyWork = ({ showAll }) => {
                             </div>
                         </div>
                     ))}
+
 
                 </div>
                 {/* Show More button only when not showing all items */}

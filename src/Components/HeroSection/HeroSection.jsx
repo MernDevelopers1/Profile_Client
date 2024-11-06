@@ -32,10 +32,7 @@ const HeroSection = () => {
                 <div className="imagebox flex justify-center items-center">
                     <img className="w-60 mx-auto rounded-full z-10" src={profile} alt="Profile" />
                     <h3 className=''>Usama Nasir<br /> <span>Front End Developer</span></h3>
-                    <button className='herobutton relative inline-block text-[#03e9f4] cursor-pointer py-[25px] px-4 md:px-[30px] uppercase tracking-[4px] text-lg font-semibold transition duration-500 overflow-hidden'><span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>HIRE MEE</button>
+                    <button>Hire me</button>
                 </div>
 
                 <h1 className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent text-3xl lg:text-6xl
