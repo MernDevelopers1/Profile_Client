@@ -54,7 +54,7 @@ const HeroSection = () => {
                     CONNECT
                 </Link>
                 <a
-                    href="/public/Usama Nasir Resume.pdf" // Replace with the actual path to your PDF
+                    href="/Usama Nasir Resume.pdf" // Replace with the actual path to your PDF
                     target="_blank"
                     rel="noopener noreferrer" // This is a security best practice
                     className="herobutton relative inline-block text-[#03e9f4] cursor-pointer py-[25px] px-4 md:px-[30px] uppercase tracking-[4px] text-lg font-semibold transition duration-500 overflow-hidden"
