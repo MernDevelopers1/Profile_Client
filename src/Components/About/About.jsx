@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import theme_pattern from "../../assets/theme_pattern.svg";
-import skillsimage from "../../assets/skills.jpg";
+// import skillsimage from "../../assets/skills.jpg";
 
 const skills = [
     { name: "HTML", progress: 70 },
@@ -52,16 +52,16 @@ const About = () => {
                 {/* Content Section */}
                 <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 bg-gray-600 p-5 md:p-10 rounded-2xl bg-opacity-25">
                     {/* Left Image (30% Width) */}
-                    <div className="w-full lg:w-1/4 flex items-center">
+                    {/* <div className="w-full lg:w-1/4 flex items-center">
                         <img
                             src={skillsimage}
                             alt="Placeholder"
                             className="w-full h-auto rounded-lg shadow-lg p-3 md:p-20 lg:p-0"
                         />
-                    </div>
+                    </div> */}
 
                     {/* Right Content (70% Width) */}
-                    <div className="w-full lg:w-3/4 flex flex-col space-y-6 px-4 md:px-0">
+                    <div className="w-full flex flex-col space-y-6 px-4 md:px-0">
                         <p className="text-white font-light text-[20px] text-justify">
                             I am a skilled front-end developer specializing in responsive web applications using HTML, CSS, Bootstrap, Tailwind, React.js, and Vue.js. I create user-friendly interfaces that enhance user experience across all devices. With expertise in modern frameworks and design principles, I deliver high-quality, visually appealing web solutions that drive engagement and results for businesses.
                         </p>
@@ -71,14 +71,14 @@ const About = () => {
                             {skills.map((skill, index) => (
                                 <div key={index} className="flex items-center space-x-4 transition-transform transform duration-300 ease-in-out hover:scale-105">
                                     {/* Skill Name */}
-                                    <span className="w-32 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                                    <span className="w-32 bg-gradient-to-r from-[#D36135] via-[#83BCA9] to-[#83BCA9] bg-clip-text text-transparent">
                                         {skill.name}
                                     </span>
 
                                     {/* Progress Bar */}
-                                    <div className="w-full bg-gray-300 rounded h-2 overflow-hidden">
+                                    <div className="w-full bg-gray-300 rounded h-4 overflow-hidden">
                                         <div
-                                            className="h-full bg-gradient-to-r from-green-400 via-yellow-500 to-red-500 transition-all duration-1000 ease-out"
+                                            className="h-full bg-gradient-to-r from-[#D36135] via-[#A24936] to-[#83BCA9] transition-all duration-1000 ease-out"
                                             style={{ width: inView ? `${skill.progress}%` : '0%' }}
                                         ></div>
                                     </div>

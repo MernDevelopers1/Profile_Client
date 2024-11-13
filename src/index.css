@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #343330;
+  background-color: #282B28;
   @apply font-rowdies;
   overflow-x: hidden;
 }
@@ -54,10 +54,10 @@ body {
 /* animations */
 
 .workbutton:hover {
-  background-color: #1e9bff;
-  color: #1e9bff;
+  background-color: #83BCA9;
+  color: #83BCA9;
   letter-spacing: 0.25em;
-  box-shadow: 0 0 35px #1e9bff;
+  box-shadow: 0 0 35px #83BCA9;
 }
 
 .workbutton::after {
@@ -250,7 +250,7 @@ body {
   content: "";
   position: absolute;
   inset: -10px 100px;
-  background: linear-gradient(315deg, #00ccff, #d900d4);
+  background: linear-gradient(315deg, #A24936, #83BCA9);
   transition: 0.5s;
   animation: animate 4s linear infinite;
   z-index: -1;
@@ -274,7 +274,7 @@ body {
   content: "";
   position: absolute;
   inset: 4px;
-  background: #162052;
+  background: #2B3B2D;
   border-radius: 50%;
   z-index: 1;
 }
@@ -314,7 +314,7 @@ body {
   padding: 8px 16px;
   font-size: 16px;
   color: white;
-  background-color: #d900d4;
+  background-color: #282B28;
   border: none;
   border-radius: 8px;
   cursor: pointer;

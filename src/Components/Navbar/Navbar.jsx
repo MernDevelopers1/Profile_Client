@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className="z-10 container absolute top-0 right-0 left-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <span className="self-center text-6xl font-semibold whitespace-nowrap bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+          <span className="self-center text-6xl font-semibold whitespace-nowrap bg-gradient-to-r from-[#A24936] to-[#83BCA9] bg-clip-text text-transparent">
             Usama
           </span>
         </a>
@@ -58,14 +58,14 @@ const Navbar = () => {
                 <li
                   key={item}
                   className={`relative cursor-pointer ${
-                    isActive(path) ? "text-purple-400 border-b-2 border-purple-500" : "text-white"
+                    isActive(path) ? "text-[#D36135] border-b-2 border-[#A24936]" : "text-white"
                   }`}
                 >
                   <Link to={path} className="block py-2 px-3 text-lg font-medium md:p-0">
                     {item.charAt(0).toUpperCase() + item.slice(1)}
                   </Link>
                   {isActive(path) && (
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-blue-500"></span>
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-[#A24936] to-[#A24936]"></span>
                   )}
                 </li>
               );
@@ -73,7 +73,7 @@ const Navbar = () => {
           </ul>
         </div>
         
-        <Link to="/contact" className="hidden lg:block cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
+        <Link to="/contact" className="hidden lg:block cursor-pointer workbutton hover:-mx-[27px] relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
           <span>Connect with me<i></i></span>
         </Link>
       </div>

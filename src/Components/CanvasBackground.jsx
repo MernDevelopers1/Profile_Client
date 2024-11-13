@@ -79,12 +79,12 @@ const CanvasBackground = () => {
       };
     }
 
-    const circles = Array.from({ length: 500 }, () => {
+    const circles = Array.from({ length: 30 }, () => {
       const radius = Math.random() * 3 + 1;
       const x = Math.random() * (canvas.width - radius * 2) + radius;
       const y = Math.random() * (canvas.height - radius * 2) + radius;
-      const dx = (Math.random() - 0.5) * 4;
-      const dy = (Math.random() - 0.5) * 4;
+      const dx = (Math.random() - 0.5) * 2;
+      const dy = (Math.random() - 0.5) * 2;
 
       return new Circle(x, y, dx, dy, radius);
     });

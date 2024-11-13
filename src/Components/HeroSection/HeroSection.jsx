@@ -3,7 +3,7 @@ import profile from '../../assets/profile_u.avif';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-    const text = "I am Usama, A front-End Web Developer";
+    const text = "I Usama, A front-End Web Developer";
     const [displayedText, setDisplayedText] = useState('');
     const typingSpeed = 100;
 
@@ -40,12 +40,10 @@ const HeroSection = () => {
                     {displayedText}
                 </h1>
                 <p className='text-white font-light text-base md:text-lg leading-snug'>
-                    I am a skilled front-end developer specializing in responsive web applications using HTML, CSS, Bootstrap, Tailwind, React.js, and Vue.js.
-                    I create user-friendly interfaces that enhance user experience across all devices. With expertise in modern frameworks and design principles,
-                    I deliver high-quality, visually appealing web solutions that drive engagement and results for businesses.
+                    I am a front-end developer specializing in responsive web apps using HTML, CSS, Bootstrap, Tailwind, React.js, and Vue.js. I create user-friendly, visually appealing interfaces that enhance user experience across all devices, delivering high-quality web solutions that drive business engagement and results.
                 </p>
             </div>
-            <div className='flex mt-10 gap-4 bg-transparent md:bg-gray-500 md:bg-opacity-50 md:rounded-xl p-0 md:p-10'>
+            <div className='flex mt-10 gap-4 bg-transparent md:bg-gray-500 md:bg-opacity-50 md:rounded-xl p-0 md:p-10 mb-10'>
                 <Link to="/contact" className="herobutton relative inline-block text-[#03e9f4] cursor-pointer py-[25px] px-4 md:px-[30px] uppercase tracking-[4px] text-lg font-semibold transition duration-500 overflow-hidden">
                     <span></span>
                     <span></span>

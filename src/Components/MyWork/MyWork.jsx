@@ -22,7 +22,7 @@ const MyWork = ({ showAll }) => {
                             />
 
                             {/* Badge */}
-                            <div className="absolute top-0 left-0 bg-red-500 text-white text-base px-2 py-1 rounded-br-lg">
+                            <div className="absolute top-0 left-0 bg-red-500 text-white text-base px-2 py-1 rounded-br-lg z-10">
                                 ESP Work
                             </div>
 
