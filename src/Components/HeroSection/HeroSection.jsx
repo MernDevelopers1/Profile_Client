@@ -3,7 +3,7 @@ import profile from '../../assets/profile_u.avif';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-    const text = "I Usama, A front-End Web Developer";
+    const text = "I  am Usama, A front-End Web Developer";
     const [displayedText, setDisplayedText] = useState('');
     const typingSpeed = 100;
 
