@@ -5,6 +5,8 @@ import BCM from '../assets/BCM.jpg'
 import AJ from '../assets/AJ PAinting.jpg'
 import broadway from '../assets/broadway.jpg'
 import indplants from '../assets/indore Plants.png'
+import ecom from '../assets/ecom.png'
+import alsaudia from '../assets/Al Saudia.png'
 
 
 const mywork_data = [
@@ -9297,8 +9299,23 @@ const navactive = () => {
 
 window.addEventListener("scroll", navactive);
 `
+    },
+    {
+        w_no: 7,
+        w_name: "E-COMMERCE with React",
+        w_img: ecom,
+        htmlcode: ``,
+        csscode: ``,
+        jscode: ``
+    },
+    {
+        w_no: 8,
+        w_name: "Al Saudia Tibbi foundation with VUE JS",
+        w_img: alsaudia,
+        htmlcode: ``,
+        csscode: ``,
+        jscode: ``
     }
-    
 
     // for 6th item template
     // {

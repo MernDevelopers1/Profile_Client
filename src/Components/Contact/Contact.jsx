@@ -47,7 +47,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className="bg-gradient-to-r from-red-400 to-yellow-400">
+            <div className="bg-gradient-to-r from-[#E0AEA3] to-[#3B403B]">
                 <div className="container">
                     <div className="py-16 ">
                         <div className="flex justify-center relative mb-10 md:mb-20 ">
@@ -55,8 +55,8 @@ const Contact = () => {
                             <img className="hidden md:block absolute z-[1] left-1/2" src={theme_pattern} alt="" />
                         </div>
 
-                        <div className="flex flex-col lg:flex-row"> {/* Changed flex direction */}
-                            <div className="w-full lg:w-2/6 pr-4"> {/* Changed width to w-full for smaller devices */}
+                        <div className="flex flex-col lg:flex-row">
+                            <div className="w-full lg:w-2/6 pr-4">
                                 <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-red-950 bg-clip-text text-transparent mb-5">Feel free to talk</h1>
                                 <p className="mb-4 text-white font-light text-lg">
                                     I excel at creating user-friendly interfaces that enhance user experience across all devices, effectively communicating design concepts and collaborating with stakeholders to deliver high-quality web solutions that drive engagement and results.
