@@ -1,83 +1,140 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
 
-  // Check if a menu item is active based on the current URL path
-  const isActive = (path) => location.pathname === path;
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
-  // Toggle function to open/close navbar
-  const toggleNavbar = () => setIsOpen(!isOpen);
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
-  // Close navbar on page change
-  React.useEffect(() => {
-    setIsOpen(false);  // Close the navbar on location (page) change
-  }, [location]);
+  // const toggleDropdown = (index) => {
+  //   setOpenDropdownIndex(openDropdownIndex === index ? null : index);
+  // };
 
   return (
-    <nav className="z-10 container absolute top-0 right-0 left-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <span className="self-center text-6xl font-semibold whitespace-nowrap bg-gradient-to-r from-[#A24936] to-[#83BCA9] bg-clip-text text-transparent">
-            Usamaaaaa
-          </span>
-        </a>
-        
-        <button
-          onClick={toggleNavbar}
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-center text-sm text-white rounded-lg md:hidden"
-          aria-controls="navbar-default"
-          aria-expanded={isOpen}
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
+    <>
+      <nav className="bg-white px-5 xxl:px-0">
+        <div className="container flex flex-wrap items-center justify-between mx-auto py-3">
+          <a href="/" className="flex items-center text-[#555555] text-3xl font-bold">
+            <span className="text-darkyellow text-3xl font-bold">Port-</span> FOLIO<span className="text-darkyellow font-bold">.</span>
+          </a>
+          
+          <button
+            onClick={toggleSidebar}
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xxl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-        
-        <div className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 text-center bg-gray-700 md:bg-transparent md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0">
-            {["home", "about", "services", "work", "contact"].map((item) => {
-              const path = `/${item === "home" ? "" : item}`;
-              return (
-                <li
-                  key={item}
-                  className={`relative cursor-pointer ${
-                    isActive(path) ? "text-[#D36135] border-b-2 border-[#A24936]" : "text-white"
-                  }`}
-                >
-                  <Link to={path} className="block py-2 px-3 text-lg font-medium md:p-0">
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </Link>
-                  {isActive(path) && (
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-[#A24936] to-[#A24936]"></span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+            <span className="sr-only">Open main menu</span>
+            <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+          {/* Sidebar */}
+          <div
+            className={`fixed top-0 right-0 h-full w-80 bg-darkyellow bg-opacity-90 text-black shadow-lg transform transition-transform duration-1000 ease-out xxl:hidden z-30 ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+              }`}
+          >
+            <button
+              onClick={closeSidebar}
+              className="absolute top-4 right-4 text-black text-4xl focus:outline-none"
+            >
+              &times;
+            </button>
+            <ul className="flex flex-col py-6 pl-6 pr-10">
+              <li>
+                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                  Contact us
+                </a>
+              </li>
+              {/* <button
+                onClick={() => toggleDropdown(1)}
+                className="flex items-center text-lg justify-between w-full py-2 px-2 text-black rounded hover:bg-gray-700 hover:text-white"
+              >
+                Dropdown 1
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              <div
+                className={`z-10 ${openDropdownIndex === 1 ? 'block' : 'hidden'} font-normal m-0 bg-gray-700 divide-y rounded-md shadow w-64`}
+              >
+                <ul className="py-2 text-sm text-gray-700">
+                  <li>
+                    <a href="#" className="block text-lg px-4 py-2 hover:bg-gray-100 text-white hover:text-black">Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block text-lg px-4 py-2 hover:bg-gray-100 text-white hover:text-black">Settings</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block text-lg px-4 py-2 hover:bg-gray-100 text-white hover:text-black">Earnings</a>
+                  </li>
+                </ul>
+              </div>
+              <button
+                onClick={() => toggleDropdown(2)}
+                className="flex items-center justify-between w-full text-lg py-2 px-2 text-black rounded hover:bg-gray-700 hover:text-white"
+              >
+                Dropdown 2
+                <svg className="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
+              <div
+                className={`z-10 ${openDropdownIndex === 2 ? 'block' : 'hidden'} font-normal m-0 bg-gray-700 divide-y divide-gray-100 rounded-md shadow w-64`}
+              >
+                <ul className="py-2 text-sm text-gray-700">
+                  <li>
+                    <a href="#" className="block text-lg text-white hover:text-black px-4 py-2 hover:bg-gray-100">dr1</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block text-lg text-white hover:text-black px-4 py-2 hover:bg-gray-100">Settings</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block text-lg text-white hover:text-black px-4 py-2 hover:bg-gray-100">Earnings</a>
+                  </li>
+                </ul>
+              </div> */}
+            </ul>
+          </div>
+          <div
+            id="overlay"
+            className={`fixed inset-0 bg-black bg-opacity-50 ${isSidebarOpen ? '' : 'hidden'} xxl:hidden z-20 backdrop-blur-sm transition-opacity duration-300 ease-in-out`}
+            onClick={closeSidebar}
+          ></div>
         </div>
-        
-        <Link to="/contact" className="hidden lg:block cursor-pointer workbutton hover:-mx-[27px] relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
-          <span>Connect with me<i></i></span>
-        </Link>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

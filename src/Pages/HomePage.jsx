@@ -1,32 +1,30 @@
 
 // import React from 'react';
 import About from "../Components/About/About";
-import CanvasBackground from "../Components/CanvasBackground";
-// import CanvasForServices from "../Components/CanvasForServices"
-import Contact from "../Components/Contact/Contact";
-import Footer from "../Components/Footer/Footer";
-import HeroSection from "../Components/HeroSection/HeroSection";
-import MyWork from "../Components/MyWork/MyWork";
+// import Contact from "../Components/Contact/Contact";
+// import Footer from "../Components/Footer/Footer";
+// import HeroSection from "../Components/HeroSection/HeroSection";
+// import MyWork from "../Components/MyWork/MyWork";
+import Banner from "../Components/Banner";
 import Navbar from "../Components/Navbar/Navbar"
-import Services from "../Components/Services/Services";
+// import Services from "../Components/Services/Services";
+import Topbar from "../Components/Topbar";
 
 
 const HomePage = () => {
     return (
         <>
-            <div className="relative min-h-screen py-[20px]">
-                <CanvasBackground />
-                <Navbar />
-                <HeroSection />
-            </div>
+            <Topbar/>
+            <Navbar />
+            <Banner/>
             <About />
-            <div className="py-[20px] bg-gray-600">
+            {/* <div className="py-[20px] bg-gray-600">
                 <Services showAll={false} />
-            </div>
+            </div> */}
             {/* <Services /> */}
-            <MyWork showAll={false} />
+            {/* <MyWork showAll={false} />
             <Contact/>
-            <Footer/>
+            <Footer/> */}
         </>
 
     );

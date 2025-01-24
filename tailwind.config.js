@@ -12,8 +12,9 @@ export default {
         'xl': '1280px', 
       },
       colors: {
-        buttonbg: '#45462A',
-        servicebg: '#343330'
+        lightblack: "#333e48",
+        lightyellow: "#FED700",
+        darkyellow: "#e0be00"
       },
       fontFamily: {
         rowdies: ['Rowdies', 'cursive'],
@@ -24,7 +25,9 @@ export default {
       backgroundImage: {
         'signup-bg': 'linear-gradient(86.95deg, #0C336B 2.52%, #D8BB7A 97.47%);', 
       }
+      
     },
+    
   },
   plugins: [],
 }
