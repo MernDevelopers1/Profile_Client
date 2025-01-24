@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-6xl font-semibold whitespace-nowrap bg-gradient-to-r from-[#A24936] to-[#83BCA9] bg-clip-text text-transparent">
-            Usama
+            Usamaaaaa
           </span>
         </a>
         
