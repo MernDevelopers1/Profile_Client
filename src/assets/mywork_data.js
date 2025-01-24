@@ -7,6 +7,8 @@ import broadway from '../assets/broadway.jpg'
 import indplants from '../assets/indore Plants.png'
 import ecom from '../assets/ecom.png'
 import alsaudia from '../assets/Al Saudia.png'
+import northState from '../assets/northstate.png'
+import netflix from '../assets/netflix.png'
 
 
 const mywork_data = [
@@ -9315,11 +9317,27 @@ window.addEventListener("scroll", navactive);
         htmlcode: ``,
         csscode: ``,
         jscode: ``
+    },
+    {
+        w_no: 9,
+        w_name: "North State Environemental",
+        w_img: northState,
+        htmlcode: ``,
+        csscode: ``,
+        jscode: ``
+    },
+    {
+        w_no: 10,
+        w_name: "Netflix clone using React and Firebase",
+        w_img: netflix,
+        htmlcode: ``,
+        csscode: ``,
+        jscode: ``
     }
 
     // for 6th item template
     // {
-    //     w_no: 6,
+    //     w_no: 9,
     //     w_name: "BroadWay at ESP INSPIRE",
     //     w_img: broadway,
     //     htmlcode: ``,
