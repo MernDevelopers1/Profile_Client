@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const About = () => {
     return (
         <>
-            <div className="bg-gray-100">
+            <div className="bg-white">
                 <div className="container mx-auto about-page pt-8 pb-20 md:py-20 px-3">
                     <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-3 md:mb-8 text-center uppercase">About Me</h2>
 

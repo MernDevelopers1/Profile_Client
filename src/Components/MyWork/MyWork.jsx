@@ -11,7 +11,7 @@ const MyWork = ({ showAll }) => {
     }, []);
 
     return (
-        <div className="bg-gray-100">
+        <div className="bg-white">
             <div className="container mx-auto">
                 <div className="py-8 md:py-20 px-2 xl:px-0">
                     <div className="flex justify-center relative mb-4 md:mb-8">
