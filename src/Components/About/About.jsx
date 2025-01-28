@@ -11,17 +11,24 @@ import mongo from "../../assets/mongo db.png"
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect } from 'react';
 
 const About = () => {
+
+
+    useEffect(()=> {
+        AOS.init();
+    })
+
     return (
         <>
-            <div className="bg-white">
+            <div className="bg-white " data-aos="fade-up" data-aos-duration="2000">
                 <div className="container mx-auto about-page pt-8 pb-20 md:py-20 px-3">
                     <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-3 md:mb-8 text-center uppercase">About Me</h2>
 
-                    <div className="flex flex-col lg:flex-row items-center md:items-start gap-10">
+                    <div className="flex flex-col lg:flex-row items-center md:items-start gap-10" data-aos="fade-up">
                         {/* Text Zone */}
-                        <div className="text-zone w-full lg:w-[70%]">
+                        <div className="text-zone w-full lg:w-[70%]" data-aos="fade-up" data-aos-duration="2000">
                             <h2 className="text-2xl font-medium text-gray-800 mb-1 md:mb-3">Info</h2>
                             <p className=" text-sm md:text-lg text-gray-700 mb-4">
                                 I am a very ambitious front-end developer looking for a role in an
@@ -41,7 +48,7 @@ const About = () => {
                         </div>
 
                         {/* Stage Cube */}
-                        <div className="stage-cube-cont w-full lg:w-[30%] flex justify-center items-center lg:mt-0">
+                        <div className="stage-cube-cont w-full lg:w-[30%] flex justify-center items-center lg:mt-0" data-aos="fade-up" data-aos-duration="2000">
                             <div className="cubespinner relative">
                                 <div className="face1 transform rotate-45">
                                     <img src={mongo} className='h-36' alt="" />

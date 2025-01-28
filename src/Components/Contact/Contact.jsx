@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoPaperPlaneSharp } from "react-icons/io5";
 
 
@@ -30,8 +30,12 @@ const Contact = ({ isStandalone = false }) => {
         }
     };
 
+    useEffect(()=> {
+        AOS.init();
+    })
+
     return (
-        <div className={`bg-lightyellow ${isStandalone ? "full-screen" : ""}`}>
+        <div className={`bg-lightyellow ${isStandalone ? "full-screen" : ""}`} data-aos="fade-down" data-aos-duration="3000">
             <div className="container mx-auto">
                 <div className="py-6 md:py-16">
                     <div className="flex justify-center relative">

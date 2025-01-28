@@ -8,7 +8,11 @@ const MyWork = ({ showAll }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        AOS.init();
     }, []);
+
+
 
     return (
         <div className="bg-white">
@@ -17,7 +21,7 @@ const MyWork = ({ showAll }) => {
                     <div className="flex justify-center relative mb-4 md:mb-8">
                         <h1 className="text-2xl md:text-4xl font-medium text-lightblack text-center">My Latest Work</h1>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 flex-col items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 flex-col items-center" data-aos="fade-up" data-aos-duration="3000" >
                         {projects.slice(0, showAll ? projects.length : 6).map((work, index) => (
                             <div key={index} className="relative group overflow-hidden">
                                 <Link to={`/preview/${work.w_no}`} className="">
