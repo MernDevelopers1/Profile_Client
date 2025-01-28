@@ -1,24 +1,25 @@
 import React from 'react';
 import serviceData from "../../assets/services_data";
 
-const Services = ({ showAll }) => {
+const Services = ({ showAll, Standalone  }) => {
     return (
-        <div className="p-4 text-white text-center">
-            <div className="container">
+        
+        <div className={`text-white text-center bg-lightyellow px-2 xl:px-0 ${Standalone ? "full-screen" : ""}`}>
+            <div className="container mx-auto">
                 <div className="py-10 md:py-20">
-                    <h1 className="text-4xl md:text-6xl text-white">My Services</h1>
-                    <div className="mx-auto">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 py-10 md:py-20">
+                    <h1 className="text-2xl md:text-4xl font-medium text-gray-800 uppercase mb-8">Skills</h1>
+                    <div className="">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
                             {serviceData.slice(0, showAll ? serviceData.length : 6).map((service, index) => {
                                 return (
                                     <div
                                         key={index}
-                                        className="group servicesanimation bg-[#343330] rounded-xl py-10 flex flex-col items-center text-center transition-transform transform duration-300 ease-in-out hover:scale-105 hover:bg-gradient-to-r hover:from-[#2B3B2D] hover:to-[#A24936] px-4"
+                                        className="group servicesanimation bg-[#343330] rounded-md py-6 md:py-10 flex flex-col gap-1 md:gap-2 items-center text-center transition-transform transform duration-500 ease-out hover:scale-95 hover:bg-gradient-to-r hover:from-[#2B3B2D] hover:to-[#A24936] px-4"
                                     >
-                                        <div className="text-5xl font-semibold text-white group-hover:text-blue-400">
+                                        <div className="text-5xl font-semibold text-white">
                                             {React.createElement(service.s_icon)}
                                         </div>
-                                        <h2 className="text-[38px] font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
+                                        <h2 className="text-2xl md:text-[38px] leading-snug font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
                                             {service.s_name}
                                         </h2>
                                         <p className="mt-2 text-gray-300">{service.s_desc}</p>

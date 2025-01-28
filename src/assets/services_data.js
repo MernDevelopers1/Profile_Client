@@ -2,6 +2,8 @@
 import { FaHtml5, FaBootstrap, FaReact, FaVuejs } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { MdOutlineMoreTime } from "react-icons/md";
+import { FaNodeJs } from "react-icons/fa";
+
 
 // Define the Services_Data array with service objects
 const Services_Data = [
@@ -26,8 +28,8 @@ const Services_Data = [
         s_desc: "Building dynamic and interactive web applications using React JS."
     },
     {
-        s_icon: FaVuejs,
-        s_name: "Vue JS",
+        s_icon: FaNodeJs,
+        s_name: "Node JS",
         s_desc: "Creating modern web interfaces with Vue.js, focusing on real-time updates."
     },
     {

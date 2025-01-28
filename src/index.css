@@ -29,7 +29,7 @@ body {
   animation-duration: 12s;
   transform-style: preserve-3d;
   transform-origin: center;
-  margin: 50px auto 0; /* Center the cube horizontally */
+  margin: 20px auto 0; /* Center the cube horizontally */
   width: 200px; /* Match the face size */
   height: 200px; /* Match the face size */
   position: relative; /* Ensure relative positioning for absolute child faces */
@@ -38,14 +38,14 @@ body {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 1px solid #ccc;
-    background: rgba(255, 255, 255, 0.4);
+    border: 3px solid #ccc;
+    background: rgba(255, 255, 255, 0.8);
     text-align: center;
     font-size: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 20px 0px darkgoldenrod;
+    box-shadow: 0 0 20px 0px #FED700;
   }
 
   .face1 {
@@ -99,6 +99,8 @@ body {
 
 
 
+
+
 /* banner  */
 
 /* Animation for text */
@@ -131,4 +133,15 @@ body {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+
+
+/* contact */
+
+.full-screen {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
 }

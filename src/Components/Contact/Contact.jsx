@@ -1,127 +1,99 @@
-// import React from 'react';
 import { useState } from "react";
-import theme_pattern from "../../assets/theme_pattern.svg";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { IoPaperPlaneSharp } from "react-icons/io5";
 
-const Contact = () => {
 
+const Contact = ({ isStandalone = false }) => {
     const [result, setResult] = useState("");
     console.log('result', result)
+
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
+        setResult("Sending...");
         const formData = new FormData(event.target);
-
         formData.append("access_key", "57b52d6f-ce9f-4d3c-aaa8-ab8b4847716c");
-
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            setResult("Form Submitted Successfully");
-            alert("Form Submitted Successfully")
-            event.target.reset();
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
+            const data = await response.json();
+            if (data.success) {
+                setResult("Form Submitted Successfully");
+                alert("Form Submitted Successfully");
+                event.target.reset();
+            } else {
+                setResult(data.message);
+            }
+        } catch (error) {
+            setResult("An error occurred. Please try again.");
+            console.error("Error submitting form:", error);
         }
     };
 
-    const personalInfo = [
-        {
-            icon: <FaEnvelope className="mr-2 text-white" />,
-            label: 'usamadeveloper14@gmail.com'
-        },
-        {
-            icon: <FaPhone className="mr-2 text-white" />,
-            label: '+92 333 1411367'
-        },
-        {
-            icon: <FaMapMarkerAlt className="mr-2 text-white" />,
-            label: 'Lahore, Pakistan'
-        },
-    ];
-
     return (
-        <>
-            <div className="bg-gradient-to-r from-[#E0AEA3] to-[#3B403B]">
-                <div className="container">
-                    <div className="py-16 ">
-                        <div className="flex justify-center relative mb-10 md:mb-20 ">
-                            <h1 className="text-6xl z-[2] text-white">Contact</h1>
-                            <img className="hidden md:block absolute z-[1] left-1/2" src={theme_pattern} alt="" />
-                        </div>
-
-                        <div className="flex flex-col lg:flex-row">
-                            <div className="w-full lg:w-2/6 pr-4">
-                                <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-red-950 bg-clip-text text-transparent mb-5">Feel free to talk</h1>
-                                <p className="mb-4 text-white font-light text-lg">
-                                    I excel at creating user-friendly interfaces that enhance user experience across all devices, effectively communicating design concepts and collaborating with stakeholders to deliver high-quality web solutions that drive engagement and results.
-                                </p>
-                                <div>
-                                    {
-                                        personalInfo.map((info, index) => (
-                                            <div className="flex items-center gap-4 mb-2" key={index}>
-                                                <span className="">{info.icon}</span>
-                                                <span className="text-xl bg-gradient-to-r from-blue-600 to-red-950 bg-clip-text text-transparent">{info.label}</span>
-                                            </div>
-                                        ))
-                                    }
+        <div className={`bg-lightyellow ${isStandalone ? "full-screen" : ""}`}>
+            <div className="container mx-auto">
+                <div className="py-6 md:py-16">
+                    <div className="flex justify-center relative">
+                        <h1 className="text-xl uppercase font-semibold text-lightblack">Contact Us</h1>
+                    </div>
+                    <h2 className="text-center text-lightblack text-3xl md:text-5xl font-semibold leading-tight md:leading-normal mb-2">Have a Project?</h2>
+                    <p className="text-center mb-6 px-2 md:px-24 lg:px-56 text-lightblack">Located far beyond the horizons, bridging the East and the West reach out to elevate your business growth. Let’s connect and create opportunities together.</p>
+                    <div className="flex flex-col lg:flex-row">
+                        <div className="w-full md:w-9/12 mx-auto">
+                            <form
+                                onSubmit={onSubmit}
+                                className="px-3 lg:px-10"
+                            >
+                                <div className="inputbox mb-[6px] md:mb-3 relative">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        required
+                                        placeholder="Your Name"
+                                    />
                                 </div>
-                            </div>
-                            <div className="w-full lg:w-2/3"> {/* Changed width to w-full for smaller devices */}
-                                <form onSubmit={onSubmit} className="bg-[#1d2b3a] p-10 rounded-xl shadow-md mt-10 lg:mt-0">
-                                    <div className="inputbox mb-8 relative">
-                                        {/* <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label> */}
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            id="name"
-                                            // placeholder="Enter Your Name"
-                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg h-16 duration-500"
-                                            required="required"
-                                        />
-                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Name</span>
-                                    </div>
-                                    <div className="inputbox mb-8 relative">
-                                        {/* <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label> */}
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            // placeholder="Enter Your Email"
-                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg h-16 duration-500"
-                                            required="required"
-                                        />
-                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Email ID</span>
-                                    </div>
-                                    <div className="inputbox mb-8 relative">
-                                        {/* <label htmlFor="msg" className="block text-gray-700 font-semibold mb-2">Your Message Here</label> */}
-                                        <textarea
-                                            name="msg"
-                                            id="msg"
-                                            rows="5"
-                                            // placeholder="Write your message..."
-                                            className="w-full p-5 bg-[#1d2b3a] rounded-md outline-none text-white text-lg duration-500"
-                                            required="required"
-                                        ></textarea>
-                                        <span className="uppercase text-white absolute left-0 pointer-events-none text-lg duration-500">Your Message</span>
-                                    </div>
-                                    <button type="submit" className="cursor-pointer workbutton relative bg-white tracking-widest text-white text-2xl px-[30px] py-[10px] transition-all duration-5000 ease-in-out hover:scale-105">
-                                        <span>Submit<i className=""></i></span>
+                                <div className="inputbox mb-[6px] md:mb-3 relative">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        required
+                                        placeholder="Enter Email ID"
+                                    />
+                                </div>
+                                <div className="inputbox mb-4 md:mb-8 relative">
+                                    <textarea
+                                        name="msg"
+                                        id="msg"
+                                        rows="5"
+                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg border-none placeholder-lightblack"
+                                        required
+                                        placeholder="Enter Message"
+                                    ></textarea>
+                                </div>
+                                <div className="text-center">
+                                    <button
+                                        type="submit"
+                                        className="bg-lightblack text-lightyellow text-2xl px-16 py-3 rounded-lg hover:scale-105 transition-transform"
+                                    >
+                                        <p className="flex gap-3 items-center">
+                                            Send <IoPaperPlaneSharp className="text-lightyellow text-2xl" />
+                                        </p>
+
                                     </button>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
+                            {/* {result && <p className="mt-4 text-white">{result}</p>} */}
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
-}
+};
 
 export default Contact;

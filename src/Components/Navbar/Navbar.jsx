@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -53,29 +54,29 @@ const Navbar = () => {
             </button>
             <ul className="flex flex-col py-6 pl-6 pr-10">
               <li>
-                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                <Link to="/" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                <Link to="/about" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                <Link to="/services" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                <Link to="/work" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
+                <Link to="/contact" onClick={closeSidebar} className="block py-2 px-2 mr-8 text-lg hover:bg-gray-700 hover:text-white rounded-lg">
                   Contact us
-                </a>
+                </Link>
               </li>
               {/* <button
                 onClick={() => toggleDropdown(1)}
@@ -139,3 +140,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
