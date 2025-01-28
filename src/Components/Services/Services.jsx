@@ -14,7 +14,7 @@ const Services = ({ showAll, Standalone  }) => {
                 <div className="py-10 md:py-20">
                     <h1 className="text-2xl md:text-4xl font-medium text-gray-800 uppercase mb-8">Skills</h1>
                     <div className="">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1" data-aos="flip-up" data-aos-duration="2000" data-aos-easing="ease-in-back">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1" data-aos="flip-up" data-aos-duration="1000" data-aos-easing="ease-in-back">
                             {serviceData.slice(0, showAll ? serviceData.length : 6).map((service, index) => {
                                 return (
                                     <div
