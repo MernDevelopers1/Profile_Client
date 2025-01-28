@@ -16,14 +16,14 @@ import { useEffect } from 'react';
 const About = () => {
 
 
-    useEffect(()=> {
+    useEffect(() => {
         AOS.init();
     })
 
     return (
         <>
             <div className="bg-white " data-aos="fade-up" data-aos-duration="2000">
-                <div className="container mx-auto about-page pt-8 pb-20 md:py-20 px-3">
+                <div className="container mx-auto about-page py-20 md:py-20 px-3">
                     <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-3 md:mb-8 text-center uppercase">About Me</h2>
 
                     <div className="flex flex-col lg:flex-row items-center md:items-start gap-10" data-aos="fade-up">
