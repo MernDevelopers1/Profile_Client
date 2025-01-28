@@ -50,7 +50,7 @@ const Contact = ({ isStandalone = false }) => {
                                         type="text"
                                         name="name"
                                         id="name"
-                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
                                         required
                                         placeholder="Your Name"
                                     />
@@ -60,7 +60,7 @@ const Contact = ({ isStandalone = false }) => {
                                         type="email"
                                         name="email"
                                         id="email"
-                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
                                         required
                                         placeholder="Enter Email ID"
                                     />
@@ -70,7 +70,7 @@ const Contact = ({ isStandalone = false }) => {
                                         name="msg"
                                         id="msg"
                                         rows="5"
-                                        className="w-full px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg border-none placeholder-lightblack"
+                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg border-none placeholder-lightblack"
                                         required
                                         placeholder="Enter Message"
                                     ></textarea>

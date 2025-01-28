@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white px-5 xxl:px-0">
+      <nav className="bg-gray-100 px-5 xxl:px-0">
         <div className="container flex flex-wrap items-center justify-between mx-auto py-3">
           <a href="/" className="flex items-center text-[#555555] text-3xl font-bold">
             <span className="text-darkyellow text-3xl font-bold">Port-</span> FOLIO<span className="text-darkyellow font-bold">.</span>
