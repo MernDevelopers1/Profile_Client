@@ -24,7 +24,7 @@ const MyWork = ({ showAll }) => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 flex-col items-center" data-aos="fade-up" data-aos-duration="3000" >
                         {projects.slice(0, showAll ? projects.length : 6).map((work, index) => (
                             <div key={index} className="relative group overflow-hidden">
-                                <Link to={`/preview/${work.w_no}`} className="">
+                                <Link to={`/preview/${work.no}`} className="">
                                     <LazyLoad
                                         height={300}
                                         offset={100}
