@@ -32,11 +32,12 @@ const About = () => {
                                 I am quite confident, naturally curious, and perpetually working on
                                 improving my chops one design problem at a time.
                             </p>
-                            <p className="text-sm md:text-lg text-gray-700">
+                            <p className="text-sm md:text-lg text-gray-700 mb-4">
                                 If I need to define myself in one sentence, that would be a family
                                 person, father of a beautiful daughter, a sports fanatic,
                                 photography enthusiast, and tech-obsessed!!!
                             </p>
+                            <a href='/public/Usama Dogar resume.pdf' target='_blank' className='text-lg bg-lightyellow px-8 py-2 rounded-lg'>Download CV</a>
                         </div>
 
                         {/* Stage Cube */}

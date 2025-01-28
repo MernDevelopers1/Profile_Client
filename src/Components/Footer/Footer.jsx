@@ -22,7 +22,7 @@ const Footer = () => {
                         <h4 className="text-lg font-semibold text-gray-700 mb-4">Quick Links</h4>
                         <ul className="space-y-2">
                             <li><Link to="/about" className="text-gray-600 hover:underline">About</Link></li>
-                            <li><Link to="/projects" className="text-gray-600 hover:underline">Projects</Link></li>
+                            <li><Link to="/work" className="text-gray-600 hover:underline">Projects</Link></li>
                             <li><Link to="/services" className="text-gray-600 hover:underline">Services</Link></li>
                             <li><Link to="/contact" className="text-gray-600 hover:underline">Contact</Link></li>
                         </ul>
@@ -31,8 +31,8 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-semibold text-gray-700 mb-4">Contact</h4>
                         <ul className="space-y-2">
-                            <li className="text-gray-600">Email: <a href="mailto:example@example.com" className="hover:text-darkyellow">usamadeveloper14@gmail.com</a></li>
-                            <li className="text-gray-600">Phone: <a href="tel:+1234567890" className="hover:text-darkyellow">+92 333-1411377</a></li>
+                            <li className="text-gray-600">Email: <a href="mailto:example@example.com" className="">usamadeveloper14@gmail.com</a></li>
+                            <li className="text-gray-600">Phone: <a href="tel:+1234567890" className="">+92 333-1411377</a></li>
                             <li className="text-gray-600">Address: LDA, Jubilee Town</li>
                         </ul>
                     </div>
@@ -41,16 +41,10 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-semibold text-gray-700 mb-4">Follow Me</h4>
                         <div className="flex space-x-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-darkyellow">
-                                Facebook
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-darkyellow">
-                                Twitter
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-darkyellow">
+                            <a href="www.linkedin.com/in/usama-dogar-26b196210" target="_blank" rel="noopener noreferrer" className="text-gray-600 ">
                                 LinkedIn
                             </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-darkyellow">
+                            <a href="https://github.com/usari14" target="_blank" rel="noopener noreferrer" className="text-gray-600 ">
                                 GitHub
                             </a>
                         </div>
