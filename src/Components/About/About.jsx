@@ -44,7 +44,15 @@ const About = () => {
                                 person, father of a beautiful daughter, a sports fanatic,
                                 photography enthusiast, and tech-obsessed!!!
                             </p>
-                            <a href='/public/Usama Dogar resume.pdf' target='_blank' className='text-lg bg-lightyellow px-8 py-2 rounded-lg'>Download CV</a>
+                            <a
+                                href='/Usama Dogar resume.pdf'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-lg bg-lightyellow px-8 py-2 rounded-lg'
+                            >
+                                Download CV
+                            </a>
+
                         </div>
 
                         {/* Stage Cube */}
