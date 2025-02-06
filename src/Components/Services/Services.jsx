@@ -1,37 +1,62 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import serviceData from "../../assets/services_data";
 
-const Services = ({ showAll, Standalone  }) => {
-    return (
-        
-        <div className={`text-white text-center bg-lightyellow px-2 xl:px-0 ${Standalone ? "full-screen" : ""}`}>
-            <div className="container mx-auto">
-                <div className="py-10 md:py-20">
-                    <h1 className="text-2xl md:text-4xl font-medium text-gray-800 uppercase mb-8">Skills</h1>
-                    <div className="">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
-                            {serviceData.slice(0, showAll ? serviceData.length : 6).map((service, index) => {
-                                return (
-                                    <div
-                                        key={index}
-                                        className="group servicesanimation bg-[#343330] rounded-md py-6 md:py-10 flex flex-col gap-1 md:gap-2 items-center text-center transition-transform transform duration-500 ease-out hover:scale-95 hover:bg-gradient-to-r hover:from-[#2B3B2D] hover:to-[#A24936] px-4"
-                                    >
-                                        <div className="text-5xl font-semibold text-white">
-                                            {React.createElement(service.s_icon)}
-                                        </div>
-                                        <h2 className="text-2xl md:text-[38px] leading-snug font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
-                                            {service.s_name}
-                                        </h2>
-                                        <p className="mt-2 text-gray-300">{service.s_desc}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
+const Services = () => {
+    useEffect(() => {
+        // Initialize Owl Carousel when component mounts
+        if (window.$) {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                autoplayHoverPause: false,
+                autoplayTimeout: 10000,
+                smartSpeed: 800,
+                navText: [
+                    "<span class='text-3xl text-black'>&#10094;</span>",
+                    "<span class='text-3xl text-black'>&#10095;</span>"
+                ],
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+        }
+    }, []);
 
-                    </div>
+    return (
+        <section className="bg-customred py-20 relative overflow-hidden">
+            <div className="absolute -top-64 -right-64 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-left" data-aos-duration="3000"></div>
+            <div className="absolute -bottom-64 -left-72 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-right" data-aos-duration="3000"></div>
+            <div className="container mx-auto px-6">
+                {/* Section Heading */}
+                <h2 className="text-5xl sm:text-7xl font-bold uppercase text-customblack text-center mb-10" data-aos="zoom-in" data-aos-duration="2000">
+                    What I’m <span className="text-black">Great At</span>
+                </h2>
+
+                {/* Owl Carousel */}
+                <div className="owl-carousel owl-theme py-5">
+                    {serviceData.map((service, index) => (
+                        <div
+                            key={index}
+                            className="bg-black p-6 rounded-xl text-center transition-all duration-700 ease-in-out hover:scale-95 hover:rotate-2 min-h-64"
+                        >
+                            {/* Icon Container */}
+                            <div className="mb-4 text-6xl text-customred flex justify-center items-center">
+                                {React.createElement(service.img1)}
+                            </div>
+                            <h3 className="text-3xl font-semibold text-customblack mb-2">{service.name}</h3>
+                            <p className="text-customblack text-lg font-redhat">{service.desc}</p>
+                        </div>
+                    ))}
                 </div>
+
             </div>
-        </div>
+        </section>
     );
 };
 

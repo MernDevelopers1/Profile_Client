@@ -5,29 +5,19 @@ export default {
   ],
   theme: {
     extend: {
-      screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px', 
-        'xl': '1280px', 
-      },
       colors: {
-        lightblack: "#333e48",
-        lightyellow: "#FED700",
+        customred: "#db0018",
+        customblack: "#e0e0e0",
         darkyellow: "#e0be00"
       },
       fontFamily: {
-        rowdies: ['Rowdies', 'cursive'],
-      },
-      boxShadow: {
-        'customShadow': '0 4px 40px 0 rgba(0, 0, 0, 0.1)',
+        oswald: ['Oswald', 'cursive'],
+        redhat: ['Red Hat Display', 'cursive'],
       },
       backgroundImage: {
-        'signup-bg': 'linear-gradient(86.95deg, #0C336B 2.52%, #D8BB7A 97.47%);', 
+        'bgbanner': "url('./src/assets/ban1.jpg')",
       }
-      
     },
-    
   },
   plugins: [],
 }
