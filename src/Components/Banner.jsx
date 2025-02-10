@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import ss from "../assets/ban1.jpg"
 
 const Banner = () => {
     useEffect(() => {
@@ -8,7 +9,7 @@ const Banner = () => {
     return (
         <>
             <div className="relative py-56">
-                <div className="absolute inset-0 bg-bgbanner bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-60"></div>
+                <div className="absolute inset-0  bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-60" style={{ backgroundImage: `url(${ss})` }}></div>
                 <div className="relative container mx-auto">
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-customblack text-[150px] font-bold leading-none mb-6 uppercase text-center stroke-text"
