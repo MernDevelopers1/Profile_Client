@@ -20,7 +20,7 @@ const Banner = () => {
                             data-aos="fade-up" data-aos-duration="2000">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum itaque aut beatae illo nihil velit nulla ut perferendis maxime inventore!
                         </p>
-                        <a href="#" data-aos="fade-up"
+                        <a href="/public/Usama Resume.pdf" target="blank" data-aos="fade-up"
                             data-aos-duration="2000" className=" bg-customred px-7 md:px-14 py-2 md:py-4 text-customblack text-lg md:text-2xl hover:bg-customblack hover:text-customred uppercase">Get in touch</a>
                     </div>
                 </div>
