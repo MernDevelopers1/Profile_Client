@@ -10,7 +10,7 @@ import ContactPage from './Pages/ContactPage';
 import ImagePage from './Pages/ImagePage';
 // import Navbar from './Components/Navbar/Navbar';
 // import Topbar from './Components/Topbar';
-// import Footer from './Components/Footer/Footer';
+import Footer from './Components/Footer/Footer';
 // import AnotherPage from './Pages/AnotherPage'; // Example of another page
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
           {/* <Route exact path="/code/:id" element={<CodePage/>} /> */}
           <Route exact path="/preview/:id" element={<ImagePage/>} />
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
     </Router>
   );
 };
