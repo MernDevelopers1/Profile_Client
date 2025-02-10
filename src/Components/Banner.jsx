@@ -1,77 +1,32 @@
-import { useEffect } from "react";
-import projects from "../ProjectsData/projects_data";
+import { useEffect } from "react"
 
 const Banner = () => {
+
     useEffect(() => {
-        const $carousel = $(".banner-carousel"); // Define $carousel
-
-        $carousel.owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            autoplayHoverPause: false,
-            autoplayTimeout: 10000,
-            responsive: {
-                0: { items: 1 },
-                600: { items: 1 },
-                1000: { items: 1 },
-            },
-        });
-
-        $carousel.on("changed.owl.carousel", function (event) {
-            // Remove active class from all slides
-            $(".owl-item .flex").removeClass("active-slide");
-
-            // Add active class to the current slide
-            const currentIndex = event.item.index;
-            $(".owl-item").eq(currentIndex).find(".flex").addClass("active-slide");
-        });
-
-        // AOS.init();
-
-        return () => {
-            $carousel.trigger("destroy.owl.carousel");
-        };
-    }, []);
+        AOS.init();
+    })
 
     return (
-        <div className="relative owl-carousel banner-carousel bg-lightyellow px-4 lg:px-0">
-            {projects.map((item, index) => (
-                <div
-                    className={`flex flex-col md:flex-row items-center justify-between container mx-auto py-6 lg:py-20 px-3 xl:px-0 ${index === 0 ? "active-slide" : ""
-                        }`}
-                    key={index}
-                >
-                    {/* Text on the left */}
-                    <div className="w-full md:w-1/2 px-5 xl:px-0 text-center md:text-left text-slide-in mb-4">
-                        <h2 className="text-xl md:text-3xl lg:text-4xl font-medium leading-none text-black ">
-                            Project ShowCase -
-                            <span className="text-xl md:text-3xl lg:text-4xl md:uppercase font-normal md:font-semibold text-blue-700 mt-2  inline">
-                                {" "}
-                                {item.name}
-                            </span>
-                        </h2>
-                        <p className="text-xl leading-tight text-black mb-5 md:mb-0 hidden md:block">
-                            Check Out my latest Projects
+        <>
+            <div className="relative py-56">
+                <div className="absolute inset-0 bg-bgbanner bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-60"></div>
+                <div className="relative container mx-auto">
+                    <div className="flex flex-col justify-center items-center">
+                        <h1 className="text-customblack text-[150px] font-bold leading-none mb-6 uppercase text-center stroke-text"
+                            data-aos="zoom-in" data-aos-duration="2000">
+                            Design Deliver Deploy
+                        </h1>
+                        <p className="text-customblack mb-6 text-2xl font-redhat text-center font-normal px-64"
+                            data-aos="fade-up" data-aos-duration="2000">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum itaque aut beatae illo nihil velit nulla ut perferendis maxime inventore!
                         </p>
-                    </div>
-
-                    {/* Images on the right */}
-                    <div className="w-full md:w-1/2 flex gap-1 justify-center items-center image-slide-in">
-                        <div className="flex items-center justify-center h-72 lg:h-[400px]">
-                            <img src={item.img2} className="object-contain max-h-full" alt="Banner" />
-                        </div>
-                        <div className=" items-center justify-center md:h-72 lg:h-[550px] hidden md:flex">
-                            <img src={item.img1} className="object-contain max-h-full" alt="Banner" />
-                        </div>
+                        <a href="#" data-aos="fade-up"
+                            data-aos-duration="2000" className=" bg-customred px-14 py-4 text-customblack text-2xl hover:bg-customblack hover:text-customred uppercase">Get in touch</a>
                     </div>
                 </div>
-            ))}
-        </div>
-    );
-};
+            </div>
+        </>
+    )
+}
 
-export default Banner;
+export default Banner

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { IoPaperPlaneSharp } from "react-icons/io5";
 
 
-const Contact = ({ isStandalone = false }) => {
+const Contact = () => {
     const [result, setResult] = useState("");
     console.log('result', result)
 
@@ -35,14 +35,15 @@ const Contact = ({ isStandalone = false }) => {
     })
 
     return (
-        <div className={`bg-lightyellow ${isStandalone ? "full-screen" : ""}`} data-aos="fade-down" data-aos-duration="3000">
+        <div className="bg-customred">
             <div className="container mx-auto">
                 <div className="py-6 md:py-16">
                     <div className="flex justify-center relative">
-                        <h1 className="text-xl uppercase font-semibold text-lightblack">Contact Us</h1>
+                        <h2 className="text-5xl sm:text-7xl font-bold uppercase text-customblack text-center mb-12" data-aos="zoom-in" data-aos-duration="2000">
+                            Contact <span className="text-black">Have a Project?</span>
+                        </h2>
                     </div>
-                    <h2 className="text-center text-lightblack text-3xl md:text-5xl font-semibold leading-tight md:leading-normal mb-2">Have a Project?</h2>
-                    <p className="text-center mb-6 px-2 md:px-24 lg:px-56 text-lightblack">Located far beyond the horizons, bridging the East and the West reach out to elevate your business growth. Let’s connect and create opportunities together.</p>
+                    <p className="text-center mb-6 px-3 md:px-32 text-white text-2xl font-redhat">Located far beyond the horizons, bridging the East and the West reach out to elevate your business growth. Let’s connect and create opportunities together.</p>
                     <div className="flex flex-col lg:flex-row">
                         <div className="w-full md:w-9/12 mx-auto">
                             <form
@@ -54,7 +55,7 @@ const Contact = ({ isStandalone = false }) => {
                                         type="text"
                                         name="name"
                                         id="name"
-                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        className="w-full px-3 py-2 bg-black  outline-none shadow-2xl text-white text-lg h-14 border-none placeholder-white placeholder:text-xl"
                                         required
                                         placeholder="Your Name"
                                     />
@@ -64,7 +65,7 @@ const Contact = ({ isStandalone = false }) => {
                                         type="email"
                                         name="email"
                                         id="email"
-                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg h-12 border-none placeholder-lightblack"
+                                        className="w-full px-3 py-2 bg-black h outline-none shadow-2xl text-white text-lg h-14 border-none placeholder-white placeholder:text-xl"
                                         required
                                         placeholder="Enter Email ID"
                                     />
@@ -74,7 +75,7 @@ const Contact = ({ isStandalone = false }) => {
                                         name="msg"
                                         id="msg"
                                         rows="5"
-                                        className="w-full bg-gray-100 px-3 py-2 rounded-md outline-none shadow-2xl text-black text-lg border-none placeholder-lightblack"
+                                        className="w-full px-3 py-2 h outline-none shadow-2xl bg-black text-white text-lg border-none placeholder-white placeholder:text-xl"
                                         required
                                         placeholder="Enter Message"
                                     ></textarea>
@@ -82,7 +83,7 @@ const Contact = ({ isStandalone = false }) => {
                                 <div className="text-center">
                                     <button
                                         type="submit"
-                                        className="bg-lightblack text-lightyellow text-2xl px-16 py-3 rounded-lg hover:scale-105 transition-transform"
+                                        className="bg-white text-lightyellow text-2xl px-16 py-3 rounded-lg hover:scale-105 transition-transform"
                                     >
                                         <p className="flex gap-3 items-center">
                                             Send <IoPaperPlaneSharp className="text-lightyellow text-2xl" />

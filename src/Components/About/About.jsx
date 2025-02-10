@@ -1,17 +1,5 @@
+import { useEffect } from "react"
 
-import {
-    faCss3,
-    faHtml5,
-    faJsSquare,
-    faReact,
-} from '@fortawesome/free-brands-svg-icons'
-// import { DiMongodb } from "react-icons/di";
-import { DiNodejs } from "react-icons/di";
-import mongo from "../../assets/mongo db.png"
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect } from 'react';
 
 const About = () => {
 
@@ -22,66 +10,32 @@ const About = () => {
 
     return (
         <>
-            <div className="bg-white " data-aos="fade-up" data-aos-duration="2000">
-                <div className="container mx-auto about-page py-20 md:py-20 px-3">
-                    <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-3 md:mb-8 text-center uppercase">About Me</h2>
-
-                    <div className="flex flex-col lg:flex-row items-center md:items-start gap-10" data-aos="fade-up">
-                        {/* Text Zone */}
-                        <div className="text-zone w-full lg:w-[70%]" data-aos="fade-up" data-aos-duration="2000">
-                            <h2 className="text-2xl font-medium text-gray-800 mb-1 md:mb-3">Info</h2>
-                            <p className=" text-sm md:text-lg text-gray-700 mb-4">
-                                I am a very ambitious front-end developer looking for a role in an
-                                established IT company with the opportunity to work with the latest
-                                technologies on challenging and diverse projects.
+            <div className="bg-black pt-20 relative overflow-hidden">
+                <div className="absolute -top-44 -right-64 bg-customblack bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-left" data-aos-duration="3000"></div>
+                <div className="absolute -bottom-44 -left-72 bg-customblack bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-right" data-aos-duration="3000"></div>
+                <div className="container mx-auto text-center">
+                    <h2 className="text-7xl font-bold uppercase text-customblack" data-aos="zoom-in" data-aos-duration="2000">
+                        Meet the Mind Behind <span className="text-customred">the Magic</span>
+                    </h2>
+                    <div className="relative flex justify-center items-center h-[900px] mx-auto">
+                        {/* Background Circles */}
+                        <div className="absolute bg-customblack bg-opacity-5 rounded-full h-[800px] w-[800px]" data-aos="fade-up" data-aos-duration="2000"></div>
+                        <div className="absolute bg-customblack bg-opacity-10 rounded-full h-[600px] w-[600px]" data-aos="fade-up" data-aos-duration="2200"></div>
+                        <div className="absolute bg-customblack bg-opacity-5 rounded-full h-[400px] w-[400px]" data-aos="fade-up" data-aos-duration="2400"></div>
+                        {/* Center Text Container */}
+                        <div className="relative z-10 flex flex-col justify-center items-center text-center">
+                            <p className="text-2xl text-customblack font-redhat mb-10 px-[400px]" data-aos="fade-up" data-aos-duration="2000">
+                                Hey I am <span className="text-customred italic ml-3 mr-3 underline font-semibold">Usama</span> a passionate front end Developer in React JS, tailwind UI/UX
                             </p>
-                            <p className="text-sm md:text-lg text-gray-700 mb-4">
-                                I am quite confident, naturally curious, and perpetually working on
-                                improving my chops one design problem at a time.
-                            </p>
-                            <p className="text-sm md:text-lg text-gray-700 mb-4">
-                                If I need to define myself in one sentence, that would be a family
-                                person, father of a beautiful daughter, a sports fanatic,
-                                photography enthusiast, and tech-obsessed!!!
-                            </p>
-                            <a
-                                href='/Usama Dogar resume.pdf'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='text-lg bg-lightyellow px-8 py-2 rounded-lg'
-                            >
-                                Download CV
+                            <h3 className="text-7xl font-semibold text-customblack leading-tight mb-10" data-aos="fade-up" data-aos-duration="3000">Get the Serive You Need to <br /> <span className='text-customred'>Make More Money</span> - Faster and Smarter!</h3>
+                            <p className="text-customblack text-2xl px-44 font-redhat mb-10" data-aos="zoom-in" data-aos-duration="2000">I’m a passionate Front-End Developer specializing in React.js, Tailwind CSS, HTML, and CSS, with experience in Node.js. I’ve built multiple front-end projects, crafting seamless, responsive, and high-performance web applications. My focus is on clean, maintainable code and delivering engaging user experiences. Whether it’s developing dynamic UIs, optimizing performance, or ensuring pixel-perfect designs, I bring creativity and technical expertise to every project.</p>
+                            <a href="/public/Usama Resume.pdf" target="blank" className="bg-customred text-customblack px-14 py-4 text-xl transition-all duration-500 ease-out hover:bg-customblack hover:text-customred uppercase">
+                                Check Out My CV
                             </a>
-
-                        </div>
-
-                        {/* Stage Cube */}
-                        <div className="stage-cube-cont w-full lg:w-[30%] flex justify-center items-center lg:mt-0" data-aos="fade-up" data-aos-duration="2000">
-                            <div className="cubespinner relative">
-                                <div className="face1 transform rotate-45">
-                                    <img src={mongo} className='h-36' alt="" />
-                                </div>
-                                <div className="face2 transform rotate-45">
-                                    <FontAwesomeIcon icon={faHtml5} color="#F06529" size="" />
-                                </div>
-                                <div className="face3 transform rotate-45">
-                                    <FontAwesomeIcon icon={faCss3} color="#28A4D9" size="" />
-                                </div>
-                                <div className="face4 transform rotate-45">
-                                    <FontAwesomeIcon icon={faReact} color="#5ED4F4" size="" />
-                                </div>
-                                <div className="face5 transform rotate-45">
-                                    <FontAwesomeIcon icon={faJsSquare} color="#EFD81D" size="" />
-                                </div>
-                                <div className="face6 transform rotate-45">
-                                    <DiNodejs size={"170"} />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

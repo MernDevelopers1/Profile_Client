@@ -11,9 +11,9 @@ const HomePage = () => {
         <>
             <Banner />
             <About />
-            <Services showAll={false} Standalone={false} />
-            <MyWork showAll={false} />
-            <Contact isStandalone={false} />
+            <Services />
+            <MyWork />
+            <Contact/>
         </>
 
     );

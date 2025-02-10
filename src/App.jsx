@@ -8,16 +8,16 @@ import MyOwrk from './Pages/MyOwrk';
 import ContactPage from './Pages/ContactPage';
 // import CodePage from './Pages/CodePage';
 import ImagePage from './Pages/ImagePage';
-import Navbar from './Components/Navbar/Navbar';
-import Topbar from './Components/Topbar';
+// import Navbar from './Components/Navbar/Navbar';
+// import Topbar from './Components/Topbar';
 import Footer from './Components/Footer/Footer';
 // import AnotherPage from './Pages/AnotherPage'; // Example of another page
 
 const App = () => {
   return (
     <Router>
-      <Topbar/>
-      <Navbar/>
+      {/* <Topbar/> */}
+      {/* <Navbar/> */}
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/about" element={<AboutPage/>} />
