@@ -67,7 +67,7 @@ const Footer = () => {
 
                 {/* Bottom Section */}
                 <div className="mt-8 border-t-2 border-gray-300 pt-4 text-center">
-                    <p className="text-gray-600 text-sm">&copy; {new Date().getFullYear()} PortFolio. All rights reserved.</p>
+                    <p className="text-customblack font-redhat text-base">&copy; {new Date().getFullYear()} PortFolio. All rights reserved.</p>
                 </div>
             </div>
         </footer>
