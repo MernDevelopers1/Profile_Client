@@ -12,162 +12,14 @@
 }
 
 body {
-  /* background-color: #282B28; */
   overflow-x: hidden;
   font-family: "Oswald", serif;
 }
 
 .container {
   max-width: 1380px;
-  /* padding: 0 12px; */
 }
 
-/* 3d box */
-
-
-.cubespinner {
-  animation-name: spincube;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 12s;
-  transform-style: preserve-3d;
-  transform-origin: center;
-  margin: 20px auto 0;
-  /* Center the cube horizontally */
-  width: 200px;
-  /* Match the face size */
-  height: 200px;
-  /* Match the face size */
-  position: relative;
-  /* Ensure relative positioning for absolute child faces */
-
-  div {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border: 3px solid #ccc;
-    background: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    font-size: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 20px 0px #FED700;
-  }
-
-  .face1 {
-    transform: translateZ(100px);
-    color: #dd0031;
-  }
-
-  .face2 {
-    transform: rotateY(90deg) translateZ(100px);
-    color: #f06529;
-  }
-
-  .face3 {
-    transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
-    color: #28a4d9;
-  }
-
-  .face4 {
-    transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
-    color: #5ed4f4;
-  }
-
-  .face5 {
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
-    color: #efd81d;
-  }
-
-  .face6 {
-    transform: rotateX(-90deg) translateZ(100px);
-    color: #ec4d28;
-  }
-}
-
-@keyframes spincube {
-
-  from,
-  to {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  16% {
-    transform: rotateY(-90deg) rotateZ(90deg);
-  }
-
-  33% {
-    transform: rotateY(-90deg) rotateX(90deg);
-  }
-
-  50% {
-    transform: rotateY(-180deg) rotateZ(90deg);
-  }
-
-  66% {
-    transform: rotateY(-270deg) rotateX(90deg);
-  }
-
-  83% {
-    transform: rotateX(90deg);
-  }
-}
-
-
-
-
-
-
-/* banner  */
-
-/* Animation for text */
-.text-slide-in {
-  animation: slideInLeft 1s ease forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Animation for images */
-.image-slide-in {
-  animation: slideInRight 2s ease forwards;
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-
-
-/* contact */
-
-.full-screen {
-  height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  align-items: center;
-  /* Vertically center content */
-  justify-content: center;
-  /* Horizontally center content */
-}
 
 
 
@@ -179,9 +31,6 @@ body {
   color: transparent;
 }
 
-/* .work-carousel .owl-nav{
-  display: none;
-} */
 
 
 .work-carousel .owl-nav button.owl-next,
@@ -213,7 +62,7 @@ body {
   top: 43%;
 }
 
-.work-carousel .owl-nav button.owl-next span:hover{
+.work-carousel .owl-nav button.owl-next span:hover {
   width: 50px;
   height: 50px;
   display: flex;
@@ -225,7 +74,7 @@ body {
   border-radius: 50%;
 }
 
-.work-carousel .owl-nav button.owl-prev span:hover{
+.work-carousel .owl-nav button.owl-prev span:hover {
   width: 50px;
   height: 50px;
   display: flex;

@@ -1,5 +1,4 @@
-// Import React and React Router Link
-// import React from 'react';
+
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +11,7 @@ const Footer = () => {
 
 
     return (
-        <footer className="bg-black py-10" data-aos="zoom-out" data-aos-duration="2000">
+        <footer className="bg-black py-10">
             <div className="container mx-auto px-4">
                 {/* Top Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8">

@@ -43,7 +43,7 @@ const Services = () => {
         if (window.$) {
             $('.owl-carousel').owlCarousel({
                 loop: true,
-                margin: 10,
+                margin: 20,
                 nav: true,
                 dots: false,
                 autoplay: true,
@@ -65,24 +65,24 @@ const Services = () => {
     }, []);
 
     return (
-        <section className="bg-customred py-20 relative overflow-hidden">
-            <div className="absolute -top-64 -right-64 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-left" data-aos-duration="3000"></div>
-            <div className="absolute -bottom-64 -left-72 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-right" data-aos-duration="3000"></div>
-            <div className="container mx-auto px-6">
-                <h2 className="text-5xl sm:text-7xl font-bold uppercase text-customblack text-center mb-10" data-aos="zoom-in" data-aos-duration="2000">
+        <section className="bg-customred py-6 md:py-20 relative overflow-hidden">
+            <div className="absolute hidden md:block -top-64 -right-64 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-left" data-aos-duration="3000"></div>
+            <div className="absolute hidden md:block -bottom-64 -left-72 bg-[#00000044] bg-opacity-5 rounded-full h-[700px] w-[700px]" data-aos="fade-right" data-aos-duration="3000"></div>
+            <div className="container mx-auto px-3 xl:px-0">
+                <h2 className="text-4xl sm:text-7xl font-bold uppercase text-customblack text-center mb-5 md:mb-10" data-aos="zoom-in" data-aos-duration="2000">
                     What I’m <span className="text-black">Great At</span>
                 </h2>
-                <div className="owl-carousel owl-theme py-5">
+                <div className="owl-carousel owl-theme py-3 md:py-5">
                     {serviceData.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-black p-6 rounded-xl text-center transition-all duration-700 ease-in-out hover:scale-95 hover:rotate-2 min-h-64"
+                            className="bg-black pt-4 md:pt-10 px-3 rounded-xl text-center transition-all duration-700 ease-in-out hover:scale-95 hover:rotate-2 min-h-52 md:min-h-64"
                         >
                             <div className="mb-4 text-6xl text-customred flex justify-center items-center">
                                 {React.createElement(service.icons)}
                             </div>
-                            <h3 className="text-3xl font-semibold text-customblack mb-2">{service.name}</h3>
-                            <p className="text-customblack text-lg font-redhat">{service.desc}</p>
+                            <h3 className="text-2xl md:text-3xl font-semibold text-customblack mb-2">{service.name}</h3>
+                            <p className="text-customblack text-base md:text-lg font-redhat">{service.desc}</p>
                         </div>
                     ))}
                 </div>
