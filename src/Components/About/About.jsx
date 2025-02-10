@@ -22,7 +22,6 @@ const About = () => {
                         <div className="absolute bg-customblack bg-opacity-5 rounded-full h-[800px] w-[800px]" data-aos="fade-up" data-aos-duration="2000"></div>
                         <div className="absolute bg-customblack bg-opacity-10 rounded-full h-[600px] w-[600px]" data-aos="fade-up" data-aos-duration="2200"></div>
                         <div className="absolute bg-customblack bg-opacity-5 rounded-full h-[400px] w-[400px]" data-aos="fade-up" data-aos-duration="2400"></div>
-
                         {/* Center Text Container */}
                         <div className="relative z-10 flex flex-col justify-center items-center text-center">
                             <p className="text-2xl text-customblack font-redhat mb-10 px-[400px]" data-aos="fade-up" data-aos-duration="2000">

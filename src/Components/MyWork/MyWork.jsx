@@ -2,52 +2,83 @@
 import { useEffect } from "react";
 import projects from "../../ProjectsData/projects_data";
 import { Link } from "react-router-dom";
-import LazyLoad from 'react-lazyload';
+// import { Link } from "react-router-dom";
+// import LazyLoad from 'react-lazyload';
+// import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
-const MyWork = ({ showAll }) => {
+
+const MyWork = () => {
+
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // }, []);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (window.$) {
+            $('.work-carousel').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 10000,
+                autoplayHoverPause: false,
+                autoplayTimeout: 10000,
+                smartSpeed: 800,
+                navText:
+                    [
+                        `<span class="custom-prev">${FaArrowLeft()}</span>`,
+                        `<span class="custom-next">${FaArrowRight()}</span>`
+                    ],
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+        }
     }, []);
 
     return (
-        <div className="container mx-auto">
-            <div className="py-8 md:py-20 px-2 xl:px-0">
-                <div className="flex justify-center relative mb-4 md:mb-8">
-                    <h1 className="text-2xl md:text-4xl font-medium text-lightblack text-center">My Latest Work</h1>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 flex-col items-center">
-                    {projects.slice(0, showAll ? projects.length : 6).map((work, index) => (
-                        <div key={index} className="relative group overflow-hidden">
-                            <Link to={`/preview/${work.w_no}`} className="">
-                                <LazyLoad
-                                    height={300}
-                                    offset={100}
-                                    placeholder={<div className="h-[300px] w-full bg-gray-200 animate-pulse"></div>}
-                                >
-                                    <img
-                                        className="h-[300px] w-full rounded-md object-cover object-top transition-transform duration-700 ease-out group-hover:scale-90 border-2 border-black"
-                                        src={work.img}
-                                        alt={`Work ${index + 1}`}
-                                    />
-                                </LazyLoad>
+        <>
+            <div className="bg-black py-20 relative overflow-hidden">
+                <div className="absolute -top-64 -right-64 bg-customblack bg-opacity-10 rounded-full h-[700px] w-[700px]" data-aos="fade-left" data-aos-duration="3000"></div>
+                <div className="absolute -bottom-64 -left-72 bg-customblack bg-opacity-10 rounded-full h-[700px] w-[700px]" data-aos="fade-right" data-aos-duration="3000"></div>
+                <div className="container mx-auto">
+                    <h2 className="text-5xl sm:text-7xl font-bold uppercase text-customblack text-center mb-14" data-aos="zoom-in" data-aos-duration="2000">
+                        My Recent <span className="text-customred">Creations</span>
+                    </h2>
+                    <div className="owl-carousel work-carousel owl-theme">
+                        {projects.map((service, index) => (
+                            <Link
+                                key={index}
+                                to={`/preview/${service.no}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open(`/preview/${service.no}`, "_blank");
+                                }}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block"
+                            >
+                                <div className="relative bg-black rounded-xl text-center transition-all duration-700 ease-in-out hover:scale-95 overflow-hidden">
+                                    <img src={service.img} alt="" className="w-full h-[300px] object-cover blur-sm" />
+                                    <div className="absolute inset-0 bg-customred bg-opacity-80 flex flex-col justify-center items-center">
+                                        <h3 className="text-3xl uppercase font-semibold text-black">{service.name}</h3>
+                                        <p className="text-black text-2xl font-bold font-redhat">{service.desc}</p>
+                                    </div>
+                                </div>
                             </Link>
-                        </div>
-                    ))}
-                </div>
-                {!showAll && (
-                    <div className="flex justify-center mt-10">
-                        <Link to="/work">
-                            <button
-                                className="text-black text-xl px-8 py-2 rounded-lg bg-lightyellow transition-transform duration-300 ease-in-out hover:scale-105">
-                                <span>Show More<i></i></span>
-                            </button>
-                        </Link>
+                        ))}
                     </div>
-                )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default MyWork;
+
