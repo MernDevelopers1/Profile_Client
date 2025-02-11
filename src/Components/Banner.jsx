@@ -18,7 +18,7 @@ const Banner = () => {
                         </h1>
                         <p className="text-customblack mb-6 text-lg md:text-2xl font-redhat text-center font-normal px-0 md:px-20 lg:px-64"
                             data-aos="fade-up" data-aos-duration="2000">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum itaque aut beatae illo nihil velit nulla ut perferendis maxime inventore!
+                            Front End Developer UI/UX Design, Proficient in responsive designs , HTML, CSS, JavaScript, React, React Router, Material UI, CSS flex box and grid,
                         </p>
                         <a href="/public/Usama Resume.pdf" target="blank" data-aos="fade-up"
                             data-aos-duration="2000" className=" bg-customred px-7 md:px-14 py-2 md:py-4 text-customblack text-lg md:text-2xl hover:bg-customblack hover:text-customred uppercase">Get in touch</a>

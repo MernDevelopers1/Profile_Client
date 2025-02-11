@@ -25,7 +25,7 @@ const Footer = () => {
                         </p>
                     </div>
                     {/* Navigation Links */}
-                    <div>
+                    {/* <div>
                         <h4 className="text-2xl font-semibold text-customred mb-4">Quick Links</h4>
                         <ul className="space-y-2">
                             <li><Link to="/about" className="text-customblack hover:underline font-redhat">About</Link></li>
@@ -33,14 +33,14 @@ const Footer = () => {
                             <li><Link to="/services" className="text-customblack hover:underline font-redhat">Services</Link></li>
                             <li><Link to="/contact" className="text-customblack hover:underline font-redhat">Contact</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                     {/* Contact Information */}
                     <div>
                         <h4 className="text-2xl font-semibold text-customred mb-4">Contact</h4>
                         <ul className="space-y-2">
-                            <li className="text-customblack">Email: <a href="mailto:example@example.com" className="hover:text-customred font-redhat">usamadeveloper14@gmail.com</a></li>
-                            <li className="text-customblack">Phone: <a href="tel:+1234567890" className="hover:text-customred font-redhat">+92 333-1411377</a></li>
-                            <li className="text-customblack">Address: LDA, Jubilee Town</li>
+                            <li className="text-customblack font-redhat">Email: <a href="mailto:example@example.com" className="hover:text-customred font-redhat">usamadeveloper14@gmail.com</a></li>
+                            <li className="text-customblack font-redhat">Phone: <a href="tel:+1234567890" className="hover:text-customred font-redhat">+92 333-1411377</a></li>
+                            <li className="text-customblack font-redhat">Address: LDA, Jubilee Town</li>
                         </ul>
                     </div>
 
@@ -48,16 +48,16 @@ const Footer = () => {
                     <div>
                         <h4 className="text-2xl font-semibold text-customred mb-4">Follow Me</h4>
                         <div className="flex space-x-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
+                            {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
                                 Facebook
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
+                            </a> */}
+                            {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
                                 Twitter
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
+                            </a> */}
+                            <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
                                 LinkedIn
                             </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
+                            <a href="https://github.com/usari14" target="_blank" rel="noopener noreferrer" className="text-customblack hover:text-customred font-redhat">
                                 GitHub
                             </a>
                         </div>
