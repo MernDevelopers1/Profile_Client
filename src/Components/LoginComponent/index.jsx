@@ -80,14 +80,15 @@ const index = () => {
               <FiLogIn className="inline-block mr-2" />
               Login
             </button>
-            <button
-              type="button"
-              className="!bg-gray-200 hover:!bg-gray-300 !text-gray-800 my-3 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-            >
-              <BsGoogle className="inline-block mr-2" />
-              Google
-            </button>
-
+            <a href={`${import.meta.env.VITE_SERVER_URL}/auth/google`}>
+              <button
+                type="button"
+                className="!bg-gray-200 hover:!bg-gray-300 !text-gray-800 my-3 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              >
+                <BsGoogle className="inline-block mr-2" />
+                Google
+              </button>
+            </a>
             <button
               type="button"
               className="!bg-blue-500 hover:!bg-blue-600 mb-3 flex items-center justify-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"

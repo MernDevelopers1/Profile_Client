@@ -7,16 +7,13 @@ const initialState = {
   loading: false,
 };
 
-// Thunk for login
 export const loginThunk = createAsyncThunk(
   "auth/login",
   async ({ Username, password }, { rejectWithValue }) => {
     try {
       console.log("Logging in with:", Username, password);
-      // console.log("process.env.Server_Url :>> ", process.env.Server_Url);
-      // Replace with your actual login API endpoint
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/api/auth/login`, // Ensure this URL matches your backend endpoint
+        `${import.meta.env.VITE_SERVER_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
@@ -32,8 +29,9 @@ export const loginThunk = createAsyncThunk(
       }
 
       const user = await response.json();
-      console.log("user :>> ", user);
-      // Assuming the user object contains the necessary user information
+      if (user.token) {
+        localStorage.setItem("jwtToken", user.token);
+      }
       return user;
     } catch (err) {
       console.log("err :>> ", err);
@@ -62,7 +60,7 @@ const authSlice = createSlice({
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.user = action.payload.user;
         state.error = null;
       })
       .addCase(loginThunk.rejected, (state, action) => {
@@ -76,4 +74,3 @@ const authSlice = createSlice({
 
 export const { logout } = authSlice.actions;
 export default authSlice.reducer;
-// This file defines the Redux slice for authentication, including actions and initial state.
