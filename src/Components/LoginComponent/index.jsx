@@ -14,7 +14,6 @@ const index = () => {
   } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
-    // console.log("process.env.Server_Url :>> ", process.env.Server_Url);
 
     // Handle login logic here
     // For example, you can dispatch a login action to your Redux store

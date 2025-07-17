@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getFromLocalStorage } from "../../utils/LocalStorageCURD";
 
 const initialState = {
   isAuthenticated: false,
   user: null,
   error: null,
-  loading: false,
+  loading: true,
 };
 
 export const loginThunk = createAsyncThunk(
   "auth/login",
   async ({ Username, password }, { rejectWithValue }) => {
     try {
-      console.log("Logging in with:", Username, password);
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/api/auth/login`,
+        `${import.meta.env.VITE_SERVER_URL}/auth/login`,
         {
           method: "POST",
           headers: {
@@ -39,7 +39,36 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
-
+export const VerifyTokenThunk = createAsyncThunk(
+  "auth/verifyToken",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = getFromLocalStorage("jwtToken");
+      if (!token) {
+        return rejectWithValue("No token found");
+      }
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/auth/verifyToken`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        const error = await response.json();
+        return rejectWithValue(error.message);
+      }
+      const user = await response.json();
+      return user;
+    } catch (err) {
+      console.log("err :>> ", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -64,6 +93,22 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(loginThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = false;
+        state.user = null;
+        state.error = action.payload;
+      })
+      .addCase(VerifyTokenThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(VerifyTokenThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = true;
+        state.user = action.payload.user;
+        state.error = null;
+      })
+      .addCase(VerifyTokenThunk.rejected, (state, action) => {
         state.loading = false;
         state.isAuthenticated = false;
         state.user = null;
