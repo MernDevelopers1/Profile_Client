@@ -88,20 +88,24 @@ const index = () => {
                 Google
               </button>
             </a>
-            <button
-              type="button"
-              className="!bg-blue-500 hover:!bg-blue-600 mb-3 flex items-center justify-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-            >
-              <CgFacebook className="inline-block mr-2" />
-              Facebook
-            </button>
-            <button
-              type="button"
-              className="!bg-gray-700 hover:!bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-            >
-              <BsGithub className="inline-block mr-2" />
-              Github
-            </button>
+            {/* <a href={`${import.meta.env.VITE_SERVER_URL}/auth/facebook`}>
+              <button
+                type="button"
+                className="!bg-blue-500 hover:!bg-blue-600 mb-3 flex items-center justify-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              >
+                <CgFacebook className="inline-block mr-2" />
+                Facebook
+              </button>
+            </a> */}
+            <a href={`${import.meta.env.VITE_SERVER_URL}/auth/github`}>
+              <button
+                type="button"
+                className="!bg-gray-700 hover:!bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              >
+                <BsGithub className="inline-block mr-2" />
+                Github
+              </button>
+            </a>
           </form>
         </div>
       </div>
