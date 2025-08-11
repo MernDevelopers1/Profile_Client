@@ -5,6 +5,7 @@ import MyOwrk from "../../Pages/MyOwrk";
 import ContactPage from "../../Pages/ContactPage";
 import ImagePage from "../../Pages/ImagePage";
 import { Navigate } from "react-router-dom";
+import Dashboard from "../../Pages/Dashboard";
 // import CodePage from "../../Pages/CodePage"; // Uncomment if needed
 
 export const ProtectedRoutes = [
@@ -35,6 +36,10 @@ export const ProtectedRoutes = [
   {
     path: "/preview/:id",
     element: <ImagePage />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />, // Ensure Dashboard component is imported
   },
   {
     path: "/*",

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getFromLocalStorage } from "../../utils/LocalStorageCURD";
+import savetolocalstorage, {
+  getFromLocalStorage,
+} from "../../utils/LocalStorageCURD";
 
 const initialState = {
   isAuthenticated: false,
@@ -29,8 +31,8 @@ export const loginThunk = createAsyncThunk(
       }
 
       const user = await response.json();
-      if (user.token) {
-        localStorage.setItem("jwtToken", user.token);
+      if (user?.data?.token && user?.success) {
+        savetolocalstorage("jwtToken", user?.data?.token);
       }
       return user;
     } catch (err) {

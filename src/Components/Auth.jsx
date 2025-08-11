@@ -17,7 +17,8 @@ const AppRoutes = () => {
   const location = useLocation();
   const showFooter =
     publicRoutes.filter((route) => route.path === location.pathname).length ===
-    0;
+      0 && location.pathname !== "/dashboard";
+  console.log("location.pathname :>> ", location.pathname);
   const token = getFromLocalStorage("jwtToken");
   useEffect(() => {
     // Only verify if token exists and not already authenticated
