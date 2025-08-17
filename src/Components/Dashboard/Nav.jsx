@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { FaBars, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { RiArrowDropDownFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { logoutThunk } from "../../ReduxConfig/Slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 const Nav = ({ isSidebarOpen, toggleSidebar }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
-
+  const navigate = useNavigate();
+  const Dispatch = useDispatch();
   // Hide dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -21,6 +25,19 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showDropdown]);
+  const logout = () => {
+    // Dispatch logout action here
+    Dispatch(logoutThunk())
+      .unwrap()
+      .then(() => {
+        // Optionally, you can redirect or show a message after logout
+        console.log("Logged out successfully");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
+  };
 
   return (
     <div className="h-14 bg-black flex justify-between items-center px-4">
@@ -65,7 +82,10 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
               <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
                 Settings
               </li>
-              <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+              <li
+                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                onClick={logout}
+              >
                 Logout
               </li>
             </ul>

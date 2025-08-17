@@ -13,12 +13,15 @@ import { VerifyTokenThunk } from "../ReduxConfig/Slices/AuthSlice";
 
 const AppRoutes = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated, loading } = useSelector((state) => state.auth);
+  const { isAuthenticated, verificationInProgress: loading } = useSelector(
+    (state) => state.auth
+  );
   const location = useLocation();
   const showFooter =
-    publicRoutes.filter((route) => route.path === location.pathname).length ===
-      0 && location.pathname !== "/dashboard";
-  console.log("location.pathname :>> ", location.pathname);
+    location.pathname !== "/login" &&
+    location.pathname !== "/register" &&
+    location.pathname !== "/dashboard" &&
+    location.pathname !== "/oauth-callback";
   const token = getFromLocalStorage("jwtToken");
   useEffect(() => {
     // Only verify if token exists and not already authenticated
@@ -41,7 +44,24 @@ const AppRoutes = () => {
   return (
     <>
       <Routes>
-        {routesToRender.map(({ path, element }) => {
+        {routesToRender.map(({ path, element, sublinks }) => {
+          if (sublinks) {
+            return (
+              <Route key={path} path={path} element={element}>
+                {sublinks.map((sublink) =>
+                  sublink.path === "home" ? (
+                    <Route key={sublink.path} index element={sublink.element} />
+                  ) : (
+                    <Route
+                      key={sublink.path}
+                      path={sublink.path}
+                      element={sublink.element}
+                    />
+                  )
+                )}
+              </Route>
+            );
+          }
           return <Route key={path} path={path} element={element} />;
         })}
       </Routes>

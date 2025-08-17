@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import savetolocalstorage, {
   getFromLocalStorage,
+  removeFromLocalStorage,
 } from "../../utils/LocalStorageCURD";
 
 const initialState = {
   isAuthenticated: false,
   user: null,
   error: null,
-  loading: true,
+  loading: false,
+  verificationInProgress: true, // Added to track verification state
 };
 
 export const loginThunk = createAsyncThunk(
@@ -27,7 +29,7 @@ export const loginThunk = createAsyncThunk(
       if (!response.ok) {
         const error = await response.json();
         console.log("error :>> ", error);
-        return rejectWithValue(error.message);
+        return rejectWithValue(error?.error || error.message);
       }
 
       const user = await response.json();
@@ -63,8 +65,35 @@ export const VerifyTokenThunk = createAsyncThunk(
         const error = await response.json();
         return rejectWithValue(error.message);
       }
+
       const user = await response.json();
+      console.log("user :>> ", user);
       return user;
+    } catch (err) {
+      console.log("err :>> ", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+export const logoutThunk = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/auth/logout`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        const error = await response.json();
+        return rejectWithValue(error.message);
+      }
+      removeFromLocalStorage("jwtToken");
+      return {};
     } catch (err) {
       console.log("err :>> ", err);
       return rejectWithValue(err.message);
@@ -89,6 +118,7 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
+        console.log("action.payload :>> ", action.payload);
         state.loading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
@@ -102,15 +132,35 @@ const authSlice = createSlice({
       })
       .addCase(VerifyTokenThunk.pending, (state) => {
         state.loading = true;
+        state.verificationInProgress = true; // Set verification in progress
         state.error = null;
       })
       .addCase(VerifyTokenThunk.fulfilled, (state, action) => {
+        console.log("action.payload :>> ", action.payload);
         state.loading = false;
+        state.verificationInProgress = false; // Verification completed
         state.isAuthenticated = true;
         state.user = action.payload.user;
         state.error = null;
       })
       .addCase(VerifyTokenThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.verificationInProgress = false; // Verification failed
+        state.isAuthenticated = false;
+        state.user = null;
+        state.error = action.payload;
+      })
+      .addCase(logoutThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logoutThunk.fulfilled, (state) => {
+        state.loading = false;
+        state.isAuthenticated = false;
+        state.user = null;
+        state.error = null;
+      })
+      .addCase(logoutThunk.rejected, (state, action) => {
         state.loading = false;
         state.isAuthenticated = false;
         state.user = null;

@@ -1,24 +1,7 @@
-import Main from "../Components/Dashboard/main";
 import Nav from "../Components/Dashboard/Nav";
 import Sidebar from "../Components/Dashboard/Sidebar";
-
-// const Dashboard = () => {
-//   return (
-//     <>
-//       <div className="flex">
-//         <Sidebar />
-//         <Nav />
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Dashboard;
-
-// pages/Dashboard.tsx
+import { Outlet } from "react-router-dom";
 import { useState } from "react";
-// import Sidebar from "../components/Sidebar";
-// import Nav from "../components/Nav";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -35,7 +18,7 @@ const Dashboard = () => {
         }}
       >
         <Nav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Main />
+        <Outlet />
       </div>
     </div>
   );

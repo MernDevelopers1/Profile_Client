@@ -1,7 +1,12 @@
 import { Navigate } from "react-router-dom";
 import Login from "../../Pages/login";
 import OAuth from "../../Pages/OAuth";
-
+import HomePage from "../../Pages/HomePage";
+import AboutPage from "../../Pages/AboutPage";
+import ServicesPage from "../../Pages/ServicesPage";
+import MyOwrk from "../../Pages/MyOwrk";
+import ContactPage from "../../Pages/ContactPage";
+import ImagePage from "../../Pages/ImagePage";
 export const publicRoutes = [
   {
     path: "/login",
@@ -10,6 +15,34 @@ export const publicRoutes = [
   {
     path: "/oauth-callback",
     element: <OAuth />,
+  },
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
+  },
+  {
+    path: "/services",
+    element: <ServicesPage />,
+  },
+  {
+    path: "/work",
+    element: <MyOwrk />,
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />,
+  },
+  // {
+  //   path: "/code/:id",
+  //   element: <CodePage />,
+  // },
+  {
+    path: "/preview/:id",
+    element: <ImagePage />,
   },
   //   {
   //     path: "/register",
@@ -29,6 +62,6 @@ export const publicRoutes = [
   //   },
   {
     path: "/*",
-    element: <Navigate to={"/login"} />, // Redirect to login for any unmatched routes
+    element: <Navigate to={"/"} />, // Redirect to login for any unmatched routes
   },
 ];
