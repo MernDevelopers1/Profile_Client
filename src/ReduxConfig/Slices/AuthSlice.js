@@ -28,7 +28,7 @@ export const loginThunk = createAsyncThunk(
       );
       if (!response.ok) {
         const error = await response.json();
-        console.log("error :>> ", error);
+        console.error("error :>> ", error);
         return rejectWithValue(error?.error || error.message);
       }
 
@@ -38,7 +38,7 @@ export const loginThunk = createAsyncThunk(
       }
       return user;
     } catch (err) {
-      console.log("err :>> ", err);
+      console.error("err :>> ", err);
       return rejectWithValue(err.message);
     }
   }
@@ -67,10 +67,9 @@ export const VerifyTokenThunk = createAsyncThunk(
       }
 
       const user = await response.json();
-      console.log("user :>> ", user);
       return user;
     } catch (err) {
-      console.log("err :>> ", err);
+      console.error("err :>> ", err);
       return rejectWithValue(err.message);
     }
   }
@@ -95,7 +94,7 @@ export const logoutThunk = createAsyncThunk(
       removeFromLocalStorage("jwtToken");
       return {};
     } catch (err) {
-      console.log("err :>> ", err);
+      console.error("err :>> ", err);
       return rejectWithValue(err.message);
     }
   }
@@ -115,17 +114,19 @@ const authSlice = createSlice({
     builder
       .addCase(loginThunk.pending, (state) => {
         state.loading = true;
+        state.verificationInProgress = true; // Set verification in progress
         state.error = null;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
-        console.log("action.payload :>> ", action.payload);
         state.loading = false;
+        state.verificationInProgress = false; // Verification completed
         state.isAuthenticated = true;
         state.user = action.payload.user;
         state.error = null;
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.loading = false;
+        state.verificationInProgress = false; // Verification failed
         state.isAuthenticated = false;
         state.user = null;
         state.error = action.payload;
@@ -136,7 +137,6 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(VerifyTokenThunk.fulfilled, (state, action) => {
-        console.log("action.payload :>> ", action.payload);
         state.loading = false;
         state.verificationInProgress = false; // Verification completed
         state.isAuthenticated = true;
@@ -152,16 +152,19 @@ const authSlice = createSlice({
       })
       .addCase(logoutThunk.pending, (state) => {
         state.loading = true;
+        verificationInProgress: true; // Set verification in progress
         state.error = null;
       })
       .addCase(logoutThunk.fulfilled, (state) => {
         state.loading = false;
+        state.verificationInProgress = false; // Verification completed
         state.isAuthenticated = false;
         state.user = null;
         state.error = null;
       })
       .addCase(logoutThunk.rejected, (state, action) => {
         state.loading = false;
+        state.verificationInProgress = false; // Verification failed
         state.isAuthenticated = false;
         state.user = null;
         state.error = action.payload;

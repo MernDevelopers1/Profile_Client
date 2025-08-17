@@ -3,7 +3,7 @@ import { IoPaperPlaneSharp } from "react-icons/io5";
 
 const Contact = () => {
   const [result, setResult] = useState("");
-  console.log("result", result);
+  // console.log("result", result);
 
   const onSubmit = async (event) => {
     event.preventDefault();

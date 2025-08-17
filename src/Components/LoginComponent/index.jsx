@@ -13,21 +13,17 @@ const index = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
-  console.log("auth :>> ", auth);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
-
     // Handle login logic here
     // For example, you can dispatch a login action to your Redux store
     dispatch(loginThunk(data))
       .unwrap()
       .then((response) => {
-        console.log(response);
         // Optionally, redirect to a different page after successful login
         navigate("/dashboard");
         // You can also handle any success message here

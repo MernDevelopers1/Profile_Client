@@ -31,7 +31,6 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
       .unwrap()
       .then(() => {
         // Optionally, you can redirect or show a message after logout
-        console.log("Logged out successfully");
         navigate("/login");
       })
       .catch((error) => {
