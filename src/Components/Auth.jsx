@@ -1,14 +1,17 @@
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { ProtectedRoutes } from "../assets/Routes/ProtectedRoute";
-import { publicRoutes } from "../assets/Routes/PublicRoutes";
+
+import { commonRoutes } from "../assets/Routes/CommenRoutes";
+import { authRoutes } from "../assets/Routes/AuthRouts";
+import { protectedRoutes } from "../assets/Routes/ProtectedRoute";
+
+import Loader from "./Loader";
 import Footer from "../Components/Footer/Footer";
 import {
   getFromLocalStorage,
   removeFromLocalStorage,
 } from "../utils/LocalStorageCURD";
-import Loader from "./Loader";
 import { VerifyTokenThunk } from "../ReduxConfig/Slices/AuthSlice";
 
 const AppRoutes = () => {
@@ -17,54 +20,71 @@ const AppRoutes = () => {
     (state) => state.auth
   );
   const location = useLocation();
-  const showFooter =
-    location.pathname !== "/login" &&
-    location.pathname !== "/register" &&
-    location.pathname !== "/dashboard" &&
-    location.pathname !== "/oauth-callback";
   const token = getFromLocalStorage("jwtToken");
+
+  // verify token on mount
   useEffect(() => {
-    // Only verify if token exists and not already authenticated
     if (token && !isAuthenticated) {
       dispatch(VerifyTokenThunk())
         .unwrap()
         .catch((error) => {
-          // Remove token if verification fails
-          if (error === "Invalid token" || error.message === "Invalid token")
+          if (error === "Invalid token" || error.message === "Invalid token") {
             removeFromLocalStorage("jwtToken");
+          }
         });
     }
   }, [token, isAuthenticated, dispatch]);
 
-  // Optionally show loading spinner while verifying
   if (loading && token) return <Loader />;
-
-  const routesToRender = isAuthenticated ? ProtectedRoutes : publicRoutes;
+  const showFooter = ![
+    "/login",
+    "/register",
+    "/dashboard",
+    "/oauth-callback",
+  ].includes(location.pathname);
 
   return (
     <>
       <Routes>
-        {routesToRender.map(({ path, element, sublinks }) => {
-          if (sublinks) {
-            return (
-              <Route key={path} path={path} element={element}>
-                {sublinks.map((sublink) =>
-                  sublink.path === "home" ? (
-                    <Route key={sublink.path} index element={sublink.element} />
-                  ) : (
-                    <Route
-                      key={sublink.path}
-                      path={sublink.path}
-                      element={sublink.element}
-                    />
-                  )
-                )}
-              </Route>
-            );
-          }
-          return <Route key={path} path={path} element={element} />;
-        })}
+        {/* Always accessible */}
+        {commonRoutes.map(({ path, element }) => (
+          <Route key={path} path={path} element={element} />
+        ))}
+
+        {/* Only show login/register when NOT logged in */}
+        {!isAuthenticated &&
+          authRoutes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+
+        {/* Protected dashboard */}
+        {isAuthenticated &&
+          protectedRoutes.map(({ path, element, sublinks }) => (
+            <Route key={path} path={path} element={element}>
+              {sublinks.map((sublink) =>
+                sublink.path === "home" ? (
+                  <Route key={sublink.path} index element={sublink.element} />
+                ) : (
+                  <Route
+                    key={sublink.path}
+                    path={sublink.path}
+                    element={sublink.element}
+                  />
+                )
+              )}
+            </Route>
+          ))}
+
+        {/* Redirect cases */}
+        {!isAuthenticated && (
+          <Route path="/dashboard/*" element={<Navigate to="/login" />} />
+        )}
+        {isAuthenticated && (
+          <Route path="/login" element={<Navigate to="/dashboard" />} />
+        )}
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
+
       {showFooter && <Footer />}
     </>
   );
