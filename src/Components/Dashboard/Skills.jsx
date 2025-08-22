@@ -1,11 +1,11 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const Skills = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>Skills</h1>
       <p>This section will highlight my skills and expertise.</p>
-    </div>
+    </MainStructure>
   );
 };
 

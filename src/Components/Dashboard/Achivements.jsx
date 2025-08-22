@@ -1,11 +1,11 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const Achivements = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>Achievements</h1>
       <p>This section will highlight my achievements and recognitions.</p>
-    </div>
+    </MainStructure>
   );
 };
 

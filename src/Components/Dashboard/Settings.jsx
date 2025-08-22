@@ -1,13 +1,13 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const Settings = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>Settings</h1>
       <p>
         This section will allow users to adjust their preferences and settings.
       </p>
-    </div>
+    </MainStructure>
   );
 };
 

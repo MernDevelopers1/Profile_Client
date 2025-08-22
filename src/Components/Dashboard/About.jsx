@@ -1,10 +1,10 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const About = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>About</h1>
-    </div>
+    </MainStructure>
   );
 };
 

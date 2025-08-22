@@ -1,13 +1,13 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const Education = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>Education & Experience</h1>
       <p>
         This section will detail my educational background and work experience.
       </p>
-    </div>
+    </MainStructure>
   );
 };
 

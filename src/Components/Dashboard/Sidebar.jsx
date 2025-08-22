@@ -1,10 +1,4 @@
-import {
-  FaHome,
-  FaUser,
-  FaCog,
-  FaUserGraduate,
-  FaCertificate,
-} from "react-icons/fa";
+import { FaUser, FaCog, FaUserGraduate, FaCertificate } from "react-icons/fa";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { RiComputerFill } from "react-icons/ri";
 import { MdDashboard } from "react-icons/md";
@@ -44,18 +38,38 @@ const Sidebar = ({ isSidebarOpen }) => {
       }}
     >
       <div className="flex items-center justify-center h-14">
-        <h1 className={`text-lg ${isSidebarOpen ? "block" : "hidden"}`}>
+        <h1
+          className={`text-lg transition-all duration-300 ${
+            isSidebarOpen
+              ? "block opacity-100 scale-100"
+              : "hidden opacity-0 scale-90"
+          }`}
+        >
           Dashboard
         </h1>
       </div>
       <div className="flex-1 mt-8 space-y-4">
         {menuItems.map((item, index) => (
           <Link to={item.Link} key={index}>
-            <div className="flex items-center gap-4 px-4 py-2 hover:bg-gray-800 transition cursor-pointer">
-              <span className="text-lg">{item.icon}</span>
-              {isSidebarOpen && (
-                <span className="whitespace-nowrap">{item.text}</span>
-              )}
+            <div
+              className={`flex items-center gap-4 px-4 py-2 hover:bg-gray-800 transition cursor-pointer`}
+            >
+              <span
+                className={`text-lg transition-transform duration-300 ${
+                  isSidebarOpen ? "scale-110 rotate-0" : "scale-125 rotate-0"
+                }`}
+              >
+                {item.icon}
+              </span>
+              <span
+                className={`whitespace-nowrap transition-all duration-300 ${
+                  isSidebarOpen
+                    ? "opacity-100 scale-100 ml-0"
+                    : "opacity-0 scale-90 ml-[-16px] w-0"
+                }`}
+              >
+                {item.text}
+              </span>
             </div>
           </Link>
         ))}

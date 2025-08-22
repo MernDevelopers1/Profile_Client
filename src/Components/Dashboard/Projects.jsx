@@ -1,11 +1,11 @@
-import React from "react";
+import MainStructure from "./MainStructure";
 
 const Projects = () => {
   return (
-    <div>
+    <MainStructure>
       <h1>Projects</h1>
       <p>This section will showcase various projects.</p>
-    </div>
+    </MainStructure>
   );
 };
 
