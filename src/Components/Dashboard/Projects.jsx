@@ -1,9 +1,9 @@
 import MainStructure from "./MainStructure";
-import { useState, useEffect, useRef } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import ProjectForm from "./ProjectsForm";
+import { useState } from "react";
+import ProjectForm from "./Projects/ProjectsForm";
+import ProjectCard from "./Projects/ProjectCard";
+import ConfirmDialog from "../../utils/ConfirmDialog";
 
-// Dummy images for demonstration
 const defaultImages = [
   "/assets/images/Login.jpg",
   "/assets/images/Login1.jpeg",
@@ -44,6 +44,9 @@ const Projects = () => {
   const [editingProject, setEditingProject] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+
   const handleSave = (project) => {
     if (project.id) {
       setProjects((prev) =>
@@ -70,70 +73,15 @@ const Projects = () => {
     setShowForm(false);
   };
 
-  const handleDelete = (id) => {
-    setProjects((prev) => prev.filter((p) => p.id !== id));
+  const handleDeleteRequest = (id) => {
+    setDeleteId(id);
+    setShowConfirm(true);
   };
 
-  // Carousel component for project images
-  const ProjectCarousel = ({ images }) => {
-    const [current, setCurrent] = useState(0);
-    const intervalRef = useRef();
-    const isHovered = useRef(false);
-
-    useEffect(() => {
-      if (!images || images.length === 0) return;
-      if (isHovered.current) return;
-      intervalRef.current = setInterval(() => {
-        setCurrent((prev) => (prev + 1) % images.length);
-      }, 5000);
-      return () => clearInterval(intervalRef.current);
-    }, [images, current]);
-
-    const handleMouseEnter = () => {
-      isHovered.current = true;
-      clearInterval(intervalRef.current);
-    };
-
-    const handleMouseLeave = () => {
-      isHovered.current = false;
-      intervalRef.current = setInterval(() => {
-        setCurrent((prev) => (prev + 1) % images.length);
-      }, 5000);
-    };
-
-    if (!images || images.length === 0) return null;
-
-    return (
-      <div
-        className="relative w-full h-40 rounded-t-lg overflow-hidden"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {images.map((img, idx) => (
-          <img
-            key={idx}
-            src={img}
-            alt={`project-img-${idx}`}
-            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-1000 ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-            style={{ transitionProperty: "opacity" }}
-          />
-        ))}
-        {images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-            {images.map((_, idx) => (
-              <span
-                key={idx}
-                className={`block w-2 h-2 rounded-full ${
-                  idx === current ? "bg-blue-600" : "bg-gray-300"
-                }`}
-              ></span>
-            ))}
-          </div>
-        )}
-      </div>
-    );
+  const confirmDelete = () => {
+    setProjects((prev) => prev.filter((p) => p.id !== deleteId));
+    setShowConfirm(false);
+    setDeleteId(null);
   };
 
   return (
@@ -152,8 +100,8 @@ const Projects = () => {
         </button>
       </div>
 
-      {/* Project List */}
-      {!showForm && (
+      {/* List or Form */}
+      {!showForm ? (
         <div
           className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
           style={{
@@ -162,71 +110,34 @@ const Projects = () => {
           }}
         >
           {projects.map((project) => (
-            <div
+            <ProjectCard
               key={project.id}
-              className="border rounded-lg bg-white shadow-sm flex flex-col"
-            >
-              {/* Carousel */}
-              <ProjectCarousel images={project.images} />
-              {/* Details */}
-              <div className="p-4 flex-1 flex flex-col">
-                <h3 className="text-lg font-semibold">{project.title}</h3>
-                <p className="text-gray-600">{project.description}</p>
-                <p className="text-sm text-gray-500 mt-1">
-                  Tech Stack: {project.techStack}
-                </p>
-                <div className="flex gap-4 mt-2 text-blue-600 text-sm">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-1 hover:underline"
-                    >
-                      <FaGithub /> GitHub
-                    </a>
-                  )}
-                  {project.liveDemo && (
-                    <a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-1 hover:underline"
-                    >
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
-                  )}
-                </div>
-                {/* Actions */}
-                <div className="flex gap-2 mt-4 justify-end">
-                  <button
-                    onClick={() => {
-                      setEditingProject(project);
-                      setShowForm(true);
-                    }}
-                    className="px-3 py-1 border rounded hover:bg-gray-100"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(project.id)}
-                    className="px-3 py-1 border text-red-600 rounded hover:bg-red-50"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
+              project={project}
+              onEdit={() => {
+                setEditingProject(project);
+                setShowForm(true);
+              }}
+              onDelete={() => handleDeleteRequest(project.id)}
+            />
           ))}
         </div>
-      )}
-
-      {/* Project Form */}
-      {showForm && (
+      ) : (
         <ProjectForm
           project={editingProject}
           onSave={handleSave}
           onCancel={() => setShowForm(false)}
+        />
+      )}
+
+      {/* Confirm Dialog */}
+      {showConfirm && (
+        <ConfirmDialog
+          title="Delete Project?"
+          message="Are you sure you want to delete this project? This action cannot be undone."
+          confirmText="Yes, Delete"
+          cancelText="Cancel"
+          onConfirm={confirmDelete}
+          onCancel={() => setShowConfirm(false)}
         />
       )}
     </MainStructure>
