@@ -36,12 +36,9 @@ const AppRoutes = () => {
   }, [token, isAuthenticated, dispatch]);
 
   if (loading && token) return <Loader />;
-  const showFooter = ![
-    "/login",
-    "/register",
-    "/dashboard",
-    "/oauth-callback",
-  ].includes(location.pathname);
+  const showFooter =
+    !["/login", "/register", "/oauth-callback"].includes(location.pathname) &&
+    !location.pathname.startsWith("/dashboard");
 
   return (
     <>

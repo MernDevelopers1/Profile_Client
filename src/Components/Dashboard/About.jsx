@@ -1,9 +1,14 @@
+import MainSectionOfAbout from "./About/MainSectionOfAbout";
+import SidebarOfAbout from "./About/SidebarOfAbout";
 import MainStructure from "./MainStructure";
 
 const About = () => {
   return (
-    <MainStructure>
-      <h1>About</h1>
+    <MainStructure padding={"p-0"}>
+      <div className="flex justify-center items-center h-full flex-1 flex-wrap md:overflow-hidden">
+        <SidebarOfAbout />
+        <MainSectionOfAbout />
+      </div>
     </MainStructure>
   );
 };
