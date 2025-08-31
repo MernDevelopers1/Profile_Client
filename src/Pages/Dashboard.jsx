@@ -9,7 +9,7 @@ const Dashboard = () => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex">
+    <div className="flex max-h-screen overflow-hidden">
       <Sidebar isSidebarOpen={isSidebarOpen} />
       <div
         className="flex flex-col  transition-all duration-300"

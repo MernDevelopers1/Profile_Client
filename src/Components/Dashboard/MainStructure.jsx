@@ -1,6 +1,6 @@
 const MainStructure = ({ children, padding }) => {
   return (
-    <div className="h-full flex justify-center items-center">
+    <div className="h-full flex justify-center items-center overflow-auto">
       <div
         className={`${
           padding || "p-4"

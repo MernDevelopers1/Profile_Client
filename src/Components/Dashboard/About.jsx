@@ -5,7 +5,7 @@ import MainStructure from "./MainStructure";
 const About = () => {
   return (
     <MainStructure padding={"p-0"}>
-      <div className="flex justify-center items-center h-full flex-1 flex-wrap md:overflow-hidden">
+      <div className="flex justify-center items-stretch h-full flex-1 flex-wrap md:overflow-y-auto rounded-xl">
         <SidebarOfAbout />
         <MainSectionOfAbout />
       </div>

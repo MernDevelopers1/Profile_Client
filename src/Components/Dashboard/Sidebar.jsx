@@ -32,7 +32,7 @@ const menuItems = [
 const Sidebar = ({ isSidebarOpen }) => {
   return (
     <div
-      className={`h-screen bg-black text-white flex flex-col transition-all duration-300`}
+      className={`min-h-screen bg-black text-white flex flex-col transition-all duration-300`}
       style={{
         width: isSidebarOpen ? "240px" : "80px",
       }}

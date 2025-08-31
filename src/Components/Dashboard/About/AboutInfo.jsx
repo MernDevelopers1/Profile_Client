@@ -10,7 +10,7 @@ const initialInfo = {
   Freelance: "testing",
   Languages: "testing",
   Title: "testing",
-  Description: "testing",
+  Description: "This is a short description about John Doe...",
 };
 
 const AboutInfo = () => {
@@ -39,7 +39,7 @@ const AboutInfo = () => {
     e.preventDefault();
     setInfo(formData);
     setEditMode(false);
-    // You can send formData to your backend here
+    // send formData to backend here
   };
 
   return (
@@ -55,9 +55,10 @@ const AboutInfo = () => {
           onClick={handleEditClick}
           aria-label="Edit Info"
         >
-          <FaRegEdit />
+          <FaRegEdit size={18} />
         </button>
       )}
+
       <form onSubmit={handleSubmit}>
         {Object.keys(info).map((key) => (
           <AboutFields
@@ -69,7 +70,7 @@ const AboutInfo = () => {
           />
         ))}
         {editMode && (
-          <div className="flex justify-end gap-3 px-4 py-4">
+          <div className="flex justify-end gap-3 px-4 py-4 sticky bottom-0 bg-white border-t">
             <button
               type="button"
               className="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300"
